@@ -1,5 +1,22 @@
 //------------------------colorPalette:
-$Black: #13182c;
+
+//Primary colors
+$blackInstock: #13182c; //Instock-Black:  Global text color
+$indigoInstock: #2E66E5; //Instock-Indigo:  Interactive elements
+$white: #FFFFFF; //White:  Global white color
+
+// secondary colors
+$slate: #5C667E; //Slate:  Table column headers & placeholder text
+$cloud: #BDC5D5; //Cloud:  Outlines, dividers, borders, table sorting icon
+
+//background colors
+$graphite: #232940; //Graphite:  Top navigation header background,CTA button hover state background
+$greyLight: #F7F8F9; //Light-Grey:  Page background,table column header background, CTA background
+
+//supporting colors
+$green: #158463; //Green:  “In stock” label
+$red: #C94515; //Red:  “Out of stock” label, error states & delete icon
+
 
 //------------------------mixin for-size:
 $mobile: 0px;
