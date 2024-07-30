@@ -1,0 +1,46 @@
+@use 'variables' as *;
+html {
+    font-size: 62.5%;
+    box-sizing: border-box; 
+}
+* {
+    margin:0;
+    border:0;
+    outline-width: 0;
+    &:focus {
+        outline: none;
+    }
+ }
+*, 
+*:before, 
+*:after {
+    box-sizing: inherit;
+}
+body {
+    width: 100%;
+    position: relative;
+    // text-align: center;
+    margin: 0;
+    padding: 0;
+    font-size: 1.6rem; 
+    font-family: 'Titillium Web', 'Open Sans', sans-serif;
+    color: $primBlack;
+    background-color: $LightGrey; 
+}
+h1, h2, h3, h4, h5, h6, ul, li, p, span, a { 
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;   
+    color: $Black;
+    text-align: left;
+}
+button {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    &:hover {
+
+    }
+}
