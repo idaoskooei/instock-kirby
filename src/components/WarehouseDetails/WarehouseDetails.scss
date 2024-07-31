@@ -2,25 +2,9 @@
 @use "../../styles/partials/breakpoints" as *;
 
 .details {
+    background-color: $white;
     display: flex;
     flex-direction: column;
-
-    &__header-wrapper {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    &__header {
-        display: flex;
-    }
-
-    &__back-btn {
-        margin-right: 0.25rem;
-    }
-
-    &__edit-btn {
-        justify-self: end;
-    }
 
     &__contact-wrapper {
         display: flex;

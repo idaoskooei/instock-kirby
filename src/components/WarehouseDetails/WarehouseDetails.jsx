@@ -1,21 +1,12 @@
 import "./WarehouseDetails.scss";
-import backArrow from "../../assets/Icons/arrow_back-24px.svg";
-import editIcon from "../../assets/Icons/edit-24px.svg";
 import WarehouseInventoryListItem from "../WarehouseInventoryListItem/WarehouseInventoryListItem";
+import DetailsPageHeader from "../DetailsPageHeader/DetailsPageHeader";
 
-const WarehouseDetails = () => {
+const WarehouseDetails = ({ warehouse }) => {
     return (
         <div className="details">
             <div className="details__header-wrapper">
-                <div className="details__header">
-                    <button className="details__back-btn">
-                        <img src={backArrow} alt="Go back to warehouse list." />
-                    </button>
-                    <h1>CITY</h1>
-                </div>
-                <button className="details__edit-btn">
-                    <img src={editIcon} alt="Edit the warehouse details." />
-                </button>
+                <DetailsPageHeader name="name" hasEdit={true} />
             </div>
             <div className="details__contact-wrapper">
                 <div>

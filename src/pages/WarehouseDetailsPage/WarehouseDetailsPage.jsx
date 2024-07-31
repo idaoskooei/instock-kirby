@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import WarehouseDetails from "../../components/WarehouseDetails/WarehouseDetails";
 
 const WarehouseDetailsPage = () => {
