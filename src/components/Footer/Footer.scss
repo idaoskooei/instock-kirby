@@ -1,0 +1,18 @@
+@use "../../styles/partials/variables" as *;
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem 0rem;
+  }
+  
+  .footer-text {
+    font-weight: 200;
+    color: $slate;
+    display: inline-block;
+    max-width: 100%; 
+    overflow: hidden;
+    text-align: center;
+  }
+  
