@@ -9,13 +9,26 @@ import InventoryDetailsPage from "./pages/InventoryDetailsPage/InventoryDetailsP
 import EditInventoryPage from "./pages/EditInventoryPage/EditInventoryPage";
 import AddInventoryPage from "./pages/AddInventoryPage/AddInventoryPage";
 import AddWarehousePage from "./pages/AddWarehousePage/AddWarehousePage";
+import Header from "./components/Header/Header";
 
 function App() {
   return (
-    <BrowserRouter>
-    <Header />
-    </BrowserRouter>
-  )
+    <Router>
+      <Header />
+      <div>
+        <Routes>
+          <Route path="/warehouses" element={<WarehousePage />} />
+          <Route path="/warehouses/:id" element={<WarehouseDetailsPage />} />
+          <Route path="/warehouses/:id/edit" element={<EditWarehousePage />} />
+          <Route path="/inventory" element={<InventoryPage />} />
+          <Route path="/inventory/:id" element={<InventoryDetailsPage />} />
+          <Route path="/inventory/:id/edit" element={<EditInventoryPage />} />
+          <Route path="/add-inventory" element={<AddInventoryPage />} />
+          <Route path="/add-warehouse" element={<AddWarehousePage />} />
+        </Routes>
+      </div>
+    </Router>
+  );
 }
 
 export default App;
