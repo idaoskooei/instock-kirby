@@ -12,7 +12,7 @@ const Header = () => {
         </Link>
         <div className="header__list">
           <NavLink
-            to="/warehouse"
+            to="/warehouses"
             className="header__list-item"
             activeclassname="header__list-item--active"
           >
