@@ -1,13 +1,12 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/breakpoints" as *;
-@use "../../styles/partials/mixins" as *;
 
 .detail-header {
     background-color: $white;
     display: flex;
     justify-content: space-between;
     padding: $headingPadding $paddingMobile;
-    @include divider;
+    border-bottom: $divider;
 
     @include tablet {
         padding-left: $paddingTablet;
