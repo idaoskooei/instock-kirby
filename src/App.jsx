@@ -1,10 +1,16 @@
-import './App.scss'
-import { BrowserRouter } from 'react-router-dom';
-import Header from './components/Header/Header';
-
+import "./App.scss";
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import WarehousePage from "./pages/WarehousePage/WarehousePage";
+import WarehouseDetailsPage from "./pages/WarehouseDetailsPage/WarehouseDetailsPage";
+import EditWarehousePage from "./pages/EditWarehousePage/EditWarehousePage";
+import InventoryPage from "./pages/InventoryPage/InventoryPage";
+import InventoryDetailsPage from "./pages/InventoryDetailsPage/InventoryDetailsPage";
+import EditInventoryPage from "./pages/EditInventoryPage/EditInventoryPage";
+import AddInventoryPage from "./pages/AddInventoryPage/AddInventoryPage";
+import AddWarehousePage from "./pages/AddWarehousePage/AddWarehousePage";
 
 function App() {
-
   return (
     <BrowserRouter>
     <Header />
