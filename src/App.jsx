@@ -10,6 +10,7 @@ import EditInventoryPage from "./pages/EditInventoryPage/EditInventoryPage";
 import AddInventoryPage from "./pages/AddInventoryPage/AddInventoryPage";
 import AddWarehousePage from "./pages/AddWarehousePage/AddWarehousePage";
 import Header from "./components/Header/Header";
+import { Navigate } from "react-router-dom";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Header />
       <div>
         <Routes>
+          <Route path="/" element={<Navigate to="/warehouses" />} />
           <Route path="/warehouses" element={<WarehousePage />} />
           <Route path="/warehouses/:id" element={<WarehouseDetailsPage />} />
           <Route path="/warehouses/:id/edit" element={<EditWarehousePage />} />
@@ -30,5 +32,4 @@ function App() {
     </Router>
   );
 }
-
 export default App;
