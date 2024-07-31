@@ -8,7 +8,7 @@ import WarehousePage from "./pages/WarehousePage/WarehousePage";
 // import InventoryDetailsPage from "./pages/InventoryDetailsPage/InventoryDetailsPage";
 // import EditInventoryPage from "./pages/EditInventoryPage/EditInventoryPage";
 // import AddInventoryPage from "./pages/AddInventoryPage/AddInventoryPage";
-// import AddWarehousePage from "./pages/AddWarehousePage/AddWarehousePage";
+import AddWarehousePage from "./pages/AddWarehousePage/AddWarehousePage";
 import Header from "./components/Header/Header";
 import { Navigate } from "react-router-dom";
 
@@ -26,7 +26,7 @@ function App() {
           {/* <Route path="/inventory/:id" element={<InventoryDetailsPage />} /> */}
           {/* <Route path="/inventory/:id/edit" element={<EditInventoryPage />} /> */}
           {/* <Route path="/add-inventory" element={<AddInventoryPage />} /> */}
-          {/* <Route path="/add-warehouse" element={<AddWarehousePage />} /> */}
+          <Route path="/add-warehouse" element={<AddWarehousePage />} />
         </Routes>
       </div>
     </Router>

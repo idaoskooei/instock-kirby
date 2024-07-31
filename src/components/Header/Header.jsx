@@ -19,7 +19,8 @@ const Header = () => {
             Warehouses
           </NavLink>
           <NavLink
-            to="/inventory"
+          // must be changed to /inventory after we have the warehouse page set up. this is just for tetsing 
+            to="/add-warehouse"
             className="header__list-item"
             activeclassname="header__list-item--active"
           >
