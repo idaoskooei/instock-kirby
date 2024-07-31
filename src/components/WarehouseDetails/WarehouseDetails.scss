@@ -1,17 +1,30 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/mixins" as *;
 
 .details {
     background-color: $white;
+    color: $black;
     display: flex;
     flex-direction: column;
+    @include divider;
 
     &__contact-wrapper {
+        margin: $paddingMobile;
         display: flex;
         flex-direction: column;
     }
 
+    &__address-wrapper {
+        margin-bottom: $headingPadding;
+    }
+
     &__contact-info {
         display: flex;
+        gap: $paddingTablet;
+    }
+
+    &__label {
+        color: $slate;
     }
 }

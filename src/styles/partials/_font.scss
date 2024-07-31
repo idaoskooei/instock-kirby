@@ -1,63 +1,64 @@
 @mixin font($size, $height, $weight) {
-  font-size: $size;
-  line-height: $height;
-  font-weight: $weight;
+    font-size: $size;
+    line-height: $height;
+    font-weight: $weight;
 }
+
 // mobile text styles:
 h1 {
-  @include font(1.75rem, 2.25rem, 600);
+    @include font(1.75rem, 2.25rem, 600);
 }
 h2 {
-  @include font(1.25rem, 1.75rem, 600);
+    @include font(1.25rem, 1.75rem, 600);
 }
 h3 {
-  @include font(0.8125rem, 1.25rem, 600);
+    @include font(0.8125rem, 1.25rem, 600);
 }
 h4 {
-  @include font(0.6875rem, 1rem, 600);
+    @include font(0.6875rem, 1rem, 600);
 }
-p .p1 {
-  @include font(0.9375rem, 1.625rem, 400);
+p.p1 {
+    @include font(0.9375rem, 1.625rem, 400);
 }
-p .p2 {
-  @include font(0.8125rem, 1.25rem, 400);
+p.p2 {
+    @include font(0.8125rem, 1.25rem, 400);
 }
-p .p3 {
-  @include font(0.6875rem, 1rem, 400);
+p.p3 {
+    @include font(0.6875rem, 1rem, 400);
 }
 ul,
 li,
 span,
 a {
-  @include font(0.9375rem, 1.625rem, 400);
+    @include font(0.9375rem, 1.625rem, 400);
 }
 // desktop & tablet text styles:
 @media only screen and (min-width: 768px) {
-  h1 {
-    @include font(2rem, 2.5rem, 600);
-  }
-  h2 {
-    @include font(1.5rem, 2rem, 600);
-  }
-  h3 {
-    @include font(0.875rem, 1.375rem, 600);
-  }
-  h4 {
-    @include font(0.75rem, 1.125rem, 600);
-  }
-  p .p1 {
-    @include font(1rem, 1.75rem, 500);
-  }
-  p .p2 {
-    @include font(0.875rem, 1.375rem, 500);
-  }
-  p .p3 {
-    @include font(0.75rem, 1.125rem, 500);
-  }
-  ul,
-  li,
-  span,
-  a {
-    @include font(1rem, 1.75rem, 500);
-  }
+    h1 {
+        @include font(2rem, 2.5rem, 600);
+    }
+    h2 {
+        @include font(1.5rem, 2rem, 600);
+    }
+    h3 {
+        @include font(0.875rem, 1.375rem, 600);
+    }
+    h4 {
+        @include font(0.75rem, 1.125rem, 600);
+    }
+    p.p1 {
+        @include font(1rem, 1.75rem, 500);
+    }
+    p.p2 {
+        @include font(0.875rem, 1.375rem, 500);
+    }
+    p.p3 {
+        @include font(0.75rem, 1.125rem, 500);
+    }
+    ul,
+    li,
+    span,
+    a {
+        @include font(1rem, 1.75rem, 500);
+    }
 }
