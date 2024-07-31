@@ -13,8 +13,6 @@ import Header from "./components/Header/Header";
 import { Navigate } from 'react-router-dom';
 import Footer from "./components/Footer/Footer";
 
-
-
 function App() {
   return (
     <Router>
