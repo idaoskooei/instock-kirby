@@ -65,11 +65,13 @@
               border-radius: 1.25rem;
               font-weight: bold;
               color: vars.$white;   
-               background-color: transparent;
-               transition: background-color 0.3s, color 0.3s;
-               &--active{
-                background-color: vars.$blackInstock;
-              }
+              background-color: transparent;
+              transition: background-color 0.3s, color 0.3s;
+
+               &--active {
+               background-color: vars.$blackInstock;
+               color: vars.$white;
+    }
               @include for-size(tablet) {
                 justify-content: flex-end; 
                 margin-top: 0;
