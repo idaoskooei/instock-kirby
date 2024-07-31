@@ -1,5 +1,5 @@
 import './WarehouseList.scss';
-import { Link , useParams} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import iconDelet from "../../assets/Icons/delete_outline-24px.svg";
 import iconEdit from "../../assets/Icons/edit-24px.svg";
 import iconChevron from "../../assets/Icons/chevron_right-24px.svg";
@@ -12,8 +12,6 @@ const URL = 'http://localhost:8080';
 const WarehouseList = () => {
   
   const [warehouses, setWarehouses] = useState([]);
-  const [activeWarehouse, setActiveWarehouse] = useState(null); 
-
 
   useEffect(() => {
     const findWarehousesAll = async () => {
@@ -41,7 +39,7 @@ const WarehouseList = () => {
 
           <Link 
           to={`/warehouses/${warehouse.id}`} 
-
+          key={warehouse.id}
           onClick={() => {
               window.scroll({
               top: 0,
