@@ -9,10 +9,12 @@ import InventoryDetailsPage from "./pages/InventoryDetailsPage/InventoryDetailsP
 import EditInventoryPage from "./pages/EditInventoryPage/EditInventoryPage";
 import AddInventoryPage from "./pages/AddInventoryPage/AddInventoryPage";
 import AddWarehousePage from "./pages/AddWarehousePage/AddWarehousePage";
+import Header from "./components/Header/Header";
 
 function App() {
   return (
     <Router>
+      <Header />
       <div>
         <Routes>
           <Route path="/warehouses" element={<WarehousePage />} />
