@@ -1,0 +1,33 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/breakpoints" as *;
+
+.details {
+    display: flex;
+    flex-direction: column;
+
+    &__header-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__header {
+        display: flex;
+    }
+
+    &__back-btn {
+        margin-right: 0.25rem;
+    }
+
+    &__edit-btn {
+        justify-self: end;
+    }
+
+    &__contact-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__contact-info {
+        display: flex;
+    }
+}
