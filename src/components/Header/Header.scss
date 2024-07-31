@@ -67,11 +67,15 @@
               color: vars.$white;   
               background-color: transparent;
               transition: background-color 0.3s, color 0.3s;
+              text-decoration: none;
 
-               &--active {
-               background-color: vars.$blackInstock;
+              &:hover {
+                background-color: lighten(vars.$graphite, 10%);
+              }
+             &--active {
+               background-color: vars.$graphite;
                color: vars.$white;
-    }
+              }
               @include for-size(tablet) {
                 justify-content: flex-end; 
                 margin-top: 0;

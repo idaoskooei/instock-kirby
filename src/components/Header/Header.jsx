@@ -14,14 +14,14 @@ const Header = () => {
           <NavLink
             to="/warehouse"
             className="header__list-item"
-            activeClassName="header__list-item--active"
+            activeclassname="header__list-item--active"
           >
             Warehouses
           </NavLink>
           <NavLink
             to="/inventory"
             className="header__list-item"
-            activeClassName="header__list-item--active"
+            activeclassname="header__list-item--active"
           >
             Inventory
           </NavLink>
