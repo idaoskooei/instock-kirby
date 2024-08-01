@@ -20,27 +20,32 @@ const AddWarehouseForm = () => {
     const [contactEmail, setContactEmail] = useState('');
 
 
-    const handleAddWarehouse = (event) => {
+    const handleAddWarehouse = async (event) => {
         event.preventDefault();
 
-        axios
-        .post('http://localhost:8080/api/warehouses', {
-            'warehouse_name': warehouseName,
-            'address': address,
-            'city': city,
-            'country': country,
-            'contact_name': contactName,
-            'contact_position': contactPosition,
-            'contact_phone': contactPhone,
-            'contact_email': contactEmail
-        })
-        .then((res) => {
-            console.log(res);
-        })
-        .then(setUpdatedMessage("Thank you for your upload"))
-        .catch((error) => {
+        if (!warehouseName || !address || !city || !country || !contactName || !contactPosition || !contactPhone || !contactEmail) {
+            setUpdatedMessage("Please fill out all fields before submitting.");
+            return;
+        }
+
+        try {
+            const response = await axios.post('http://localhost:8080/api/warehouses', {
+                warehouse_name: warehouseName,
+                address: address,
+                city: city,
+                country: country,
+                contact_name: contactName,
+                contact_position: contactPosition,
+                contact_phone: contactPhone,
+                contact_email: contactEmail
+            });
+            console.log(response.data);
+            setUpdatedMessage("Thank you for your upload");
+            navigate('/'); 
+        } catch (error) {
             console.log(error);
-        });
+            setUpdatedMessage("Failed to add warehouse. Please try again.");
+        }
     };
     
     const navigateWarehousePage = useNavigate();
