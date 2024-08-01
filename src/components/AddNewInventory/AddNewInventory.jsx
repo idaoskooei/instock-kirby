@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 import "./AddNewInventory.scss";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
@@ -17,7 +18,6 @@ const AddNewInventory = () => {
     const [selectedCategory, setSelectedCategory] = useState("");
     const [status, setStatus] = useState("In Stock");
     const [quantity, setQuantity] = useState("0");
-    const [warehouses, setWarehouses] = useState([]);
     const [warehouseOptions, setWarehouseOptions] = useState([]);
     const [selectedWarehouse, setSelectedWarehouse] = useState(null);
     const [isFormValid, setIsFormValid] = useState(true);
@@ -52,121 +52,136 @@ const AddNewInventory = () => {
     const getWarehouses = async () => {
         try {
             let response = await axios.get(`${API_BASE_URL}/api/warehouses`);
-            setWarehouses(response.data);
+            const warehouses = response.data;
+            const warehouseOptions = [];
+            for (const warehouse of warehouses) {
+                warehouseOptions.push({
+                    value: warehouse.id,
+                    label: warehouse.warehouse_name,
+                });
+            }
+
+            setWarehouseOptions(warehouseOptions);
         } catch (error) {
             console.error("Error retriving list of warehouses.", error);
         }
     };
     useEffect(() => {
         getWarehouses();
-        const warehouseOptions = [];
-        for (const warehouse of warehouses) {
-            warehouseOptions.push({
-                value: warehouse.id,
-                label: warehouse.warehouse_name,
-            });
-        }
-        setWarehouseOptions(warehouseOptions);
     }, []);
 
+    if (!warehouseOptions) {
+        return <>Loading...</>;
+    }
     return (
         <div>
             <form className="inventory-form">
-                <fieldset>
-                    <legend>
-                        <h2>Item Details</h2>
-                    </legend>
-                    <label htmlFor="name">Name</label>
-                    <input
-                        type="text"
-                        className="inventory-form__input"
-                        id="name"
-                        name="name"
-                        placeholder="Item name"
-                        onChange={handleItemNameChange}
-                        value={itemName}
-                    />
-                    <label htmlFor="description" />
-                    <textarea
-                        className={
-                            isFormValid
-                                ? "inventory-form__input"
-                                : "inventory-form__input inventory-form__input--error"
-                        }
-                        name="description"
-                        id="description"
-                        placeholder="Please enter a brief item description..."
-                        onChange={handleDescriptionChange}
-                        value={description}
-                    ></textarea>
-                    <label id="category-label" htmlFor="category-dropdown">
-                        Category
-                    </label>
-                    <Dropdown
-                        options={categoryOptions}
-                        onChange={handleCategoryChange}
-                        value={selectedCategory}
-                        placeholder="Please select"
-                        aria-labelledby="category-label"
-                        id="category-dropdown"
-                    />
-                </fieldset>
-                <fieldset>
-                    <legend>
-                        <h2>Item Availability</h2>
-                    </legend>
+                <div>
                     <fieldset>
                         <legend>
-                            <p>Status</p>
+                            <h2>Item Details</h2>
                         </legend>
-                        <label>
-                            <input
-                                type="radio"
-                                name="status"
-                                value="In Stock"
-                                checked={status === "In Stock"}
-                                onChange={handleStatusChange}
-                            />
-                            In Stock
+                        <label htmlFor="name">Name</label>
+                        <input
+                            type="text"
+                            className="inventory-form__input"
+                            id="name"
+                            name="name"
+                            placeholder="Item name"
+                            onChange={handleItemNameChange}
+                            value={itemName}
+                        />
+                        <label htmlFor="description" />
+                        <textarea
+                            className={
+                                isFormValid
+                                    ? "inventory-form__input"
+                                    : "inventory-form__input inventory-form__input--error"
+                            }
+                            name="description"
+                            id="description"
+                            placeholder="Please enter a brief item description..."
+                            onChange={handleDescriptionChange}
+                            value={description}
+                        ></textarea>
+                        <label id="category-label" htmlFor="category-dropdown">
+                            Category
                         </label>
-                        <label>
-                            <input
-                                type="radio"
-                                name="status"
-                                value="Out of Stock"
-                                checked={status === "Out of Stock"}
-                                onChange={handleStatusChange}
-                            />
-                            Out of Stock
-                        </label>
+                        <Dropdown
+                            options={categoryOptions}
+                            onChange={handleCategoryChange}
+                            value={selectedCategory}
+                            placeholder="Please select"
+                            aria-labelledby="category-label"
+                            id="category-dropdown"
+                        />
                     </fieldset>
+                    <fieldset>
+                        <legend>
+                            <h2>Item Availability</h2>
+                        </legend>
+                        <fieldset>
+                            <legend>
+                                <p>Status</p>
+                            </legend>
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="status"
+                                    value="In Stock"
+                                    checked={status === "In Stock"}
+                                    onChange={handleStatusChange}
+                                />
+                                In Stock
+                            </label>
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="status"
+                                    value="Out of Stock"
+                                    checked={status === "Out of Stock"}
+                                    onChange={handleStatusChange}
+                                />
+                                Out of Stock
+                            </label>
+                        </fieldset>
 
-                    {status === "In Stock" && (
-                        <div>
-                            <label htmlFor="quantity">Quantity</label>
-                            <input
-                                type="number"
-                                className="inventory-form__input"
-                                id="quantity"
-                                name="quantity"
-                                placeholder="0"
-                                onChange={handleQuantityChange}
-                                value={quantity}
-                            />
-                        </div>
-                    )}
-                    <label id="warehouse-label" htmlFor="warehouse-dropdown">
-                        Warehouse
-                    </label>
-                    <Dropdown
-                        options={warehouseOptions}
-                        onChange={handleWarehouseChange}
-                        value={selectedWarehouse}
-                        placeholder="Please select"
-                        aria-labelledby="warehouse-label"
-                        id="category-dropdown"
-                    />
-                </fieldset>
+                        {status === "In Stock" && (
+                            <div>
+                                <label htmlFor="quantity">Quantity</label>
+                                <input
+                                    type="number"
+                                    className="inventory-form__input"
+                                    id="quantity"
+                                    name="quantity"
+                                    placeholder="0"
+                                    onChange={handleQuantityChange}
+                                    value={quantity}
+                                />
+                            </div>
+                        )}
+                        <label
+                            id="warehouse-label"
+                            htmlFor="warehouse-dropdown"
+                        >
+                            Warehouse
+                        </label>
+                        <Dropdown
+                            options={warehouseOptions}
+                            onChange={handleWarehouseChange}
+                            value={
+                                selectedWarehouse ? selectedWarehouse.value : ""
+                            }
+                            placeholder="Please select"
+                            aria-labelledby="warehouse-label"
+                            id="category-dropdown"
+                        />
+                    </fieldset>
+                </div>
+                <div>
+                    <button>Cancel</button>
+                    <button>Add Item</button>
+                </div>
             </form>
         </div>
     );
