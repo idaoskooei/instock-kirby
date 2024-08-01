@@ -1,0 +1,85 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/breakpoints" as *;
+
+.inventory-form {
+    display: flex;
+    flex-direction: column;
+    background-color: $white;
+    padding: 0 $paddingMobile;
+
+    @include tablet {
+        padding: 0 $paddingTablet;
+    }
+
+    &__form-wrapper {
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+            flex-direction: row;
+            margin-top: $paddingTablet;
+        }
+    }
+
+    &__section {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        &--divider {
+            border-top: $divider;
+
+            @include tablet {
+                border-top: none;
+                border-left: $divider;
+                padding-left: $paddingTablet;
+            }
+        }
+
+        &--padding {
+            @include tablet {
+                padding-right: $paddingTablet;
+            }
+        }
+    }
+
+    &__input {
+        width: 100%;
+        height: $mobile-form-height;
+        margin-top: $paddingInComponents;
+        margin-bottom: $paddingMobile;
+        border-radius: $form-input-radius;
+        padding: $form-padding;
+        border: 1px solid $cloud;
+
+        @include tablet {
+            height: $tablet-form-height;
+        }
+
+        &--textarea {
+            height: 7.5rem;
+        }
+    }
+
+    &__dropdown .Dropdown-control {
+        margin-top: $paddingInComponents;
+        margin-bottom: $paddingMobile;
+        border-radius: $form-input-radius;
+        height: $mobile-form-height;
+        border-color: $cloud;
+        padding: 5px 16px;
+
+        @include tablet {
+            height: $tablet-form-height;
+        }
+    }
+
+    &__header {
+        margin: $paddingMobile 0;
+    }
+
+    &__radio-wrapper {
+        display: flex;
+        width: 100%;
+        gap: 4rem;
+    }
+}

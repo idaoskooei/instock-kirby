@@ -1,11 +1,11 @@
-import AddNewInventory from "../../components/AddNewInventory/AddNewInventory";
+import InventoryForm from "../../components/InventoryForm/InventoryForm.jsx";
 import DetailsPageHeader from "../../components/DetailsPageHeader/DetailsPageHeader.jsx";
 
 const AddInventoryPage = () => {
     return (
         <>
             <DetailsPageHeader name="Add New Inventory Item" />
-            <AddNewInventory />
+            <InventoryForm />
         </>
     );
 };

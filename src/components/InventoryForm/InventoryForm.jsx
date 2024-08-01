@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "./AddNewInventory.scss";
+import "./InventoryForm.scss";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 
@@ -76,10 +76,12 @@ const AddNewInventory = () => {
     return (
         <div>
             <form className="inventory-form">
-                <div>
-                    <fieldset>
+                <div className="inventory-form__form-wrapper">
+                    <div className="inventory-form__section inventory-form__section--padding">
                         <legend>
-                            <h2>Item Details</h2>
+                            <h2 className="inventory-form__header">
+                                Item Details
+                            </h2>
                         </legend>
                         <label htmlFor="name">Name</label>
                         <input
@@ -91,12 +93,12 @@ const AddNewInventory = () => {
                             onChange={handleItemNameChange}
                             value={itemName}
                         />
-                        <label htmlFor="description" />
+                        <label htmlFor="description">Description</label>
                         <textarea
                             className={
                                 isFormValid
-                                    ? "inventory-form__input"
-                                    : "inventory-form__input inventory-form__input--error"
+                                    ? "inventory-form__input inventory-form__input--textarea"
+                                    : "inventory-form__input inventory-form__input--textarea inventory-form__input--error"
                             }
                             name="description"
                             id="description"
@@ -114,16 +116,18 @@ const AddNewInventory = () => {
                             placeholder="Please select"
                             aria-labelledby="category-label"
                             id="category-dropdown"
+                            className="inventory-form__dropdown"
                         />
-                    </fieldset>
-                    <fieldset>
+                    </div>
+                    <div className="inventory-form__section inventory-form__section--divider">
                         <legend>
-                            <h2>Item Availability</h2>
+                            <h2 className="inventory-form__header">
+                                Item Availability
+                            </h2>
                         </legend>
-                        <fieldset>
-                            <legend>
-                                <p>Status</p>
-                            </legend>
+
+                        <label>Status</label>
+                        <div className="inventory-form__radio-wrapper">
                             <label>
                                 <input
                                     type="radio"
@@ -131,6 +135,7 @@ const AddNewInventory = () => {
                                     value="In Stock"
                                     checked={status === "In Stock"}
                                     onChange={handleStatusChange}
+                                    className="inventory-form__radio-btn"
                                 />
                                 In Stock
                             </label>
@@ -141,10 +146,11 @@ const AddNewInventory = () => {
                                     value="Out of Stock"
                                     checked={status === "Out of Stock"}
                                     onChange={handleStatusChange}
+                                    className="inventory-form__radio-btn"
                                 />
                                 Out of Stock
                             </label>
-                        </fieldset>
+                        </div>
 
                         {status === "In Stock" && (
                             <div>
@@ -175,8 +181,9 @@ const AddNewInventory = () => {
                             placeholder="Please select"
                             aria-labelledby="warehouse-label"
                             id="category-dropdown"
+                            className="inventory-form__dropdown"
                         />
-                    </fieldset>
+                    </div>
                 </div>
                 <div>
                     <button>Cancel</button>
