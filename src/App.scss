@@ -2,4 +2,34 @@
 @use "./styles/partials/font" as *;
 @use "./styles/partials/global" as *;
 @use "./styles/partials/typography" as *;
-@use "./styles/partials/variables" as *;
+@use "./styles/partials/variables" as vars;
+
+body {
+    margin: 0rem;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.browser-container{
+    background-color: vars.$grey;
+}
+
+.routes-container{
+    background-color: vars.$white;
+    position: relative;
+    top: -4rem;
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+    border-radius: 0.5rem;
+    margin: 0 1rem;
+
+    @include tablet{
+        margin: 0 2rem;
+        top: -6rem;
+    }
+
+    @include desktop{
+        margin: 0 9rem;
+    }
+}
