@@ -1,4 +1,4 @@
-@use "variables" as *;
+
 
 @mixin desktop {
   @media (min-width: $breakpoint-desktop) {
@@ -10,5 +10,7 @@
   @media (min-width: $breakpoint-tablet-min) and (max-width: $breakpoint-tablet-max) {
     @content;
   }
+
 }
+
 

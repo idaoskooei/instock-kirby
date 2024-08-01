@@ -17,7 +17,17 @@ $grey: #f7f8f9; //Light-Grey:  Page background,table column header background, C
 $green: #158463; //Green:  “In stock” label
 $red: #c94515; //Red:  “Out of stock” label, error states & delete icon
 
-//breakpoints
+
+//------------------------mixin for-size:
+$tablet: 768px;
+$desktop: 1280px;
+//------------------------:
+// $navHeight: 7.4rem;
+$paddingMobile: 1.6rem;
+$paddingTablet: 2.4rem;
+
+//breakpoints--------:
+
 
 $breakpoint-tablet-min: 768px;
 $breakpoint-tablet-max: 1279px;
