@@ -1,0 +1,45 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/breakpoints" as *;
+
+.detail-header {
+    background-color: $white;
+    display: flex;
+    justify-content: space-between;
+    padding: $headingPadding $paddingMobile;
+    border-bottom: $divider;
+
+    @include tablet {
+        padding-left: $paddingTablet;
+        padding-right: $paddingTablet;
+    }
+
+    &__wrapper {
+        display: flex;
+    }
+
+    &__back-btn {
+        margin-right: 0.25rem;
+    }
+
+    &__edit-wrapper--none {
+        display: none;
+    }
+
+    &__edit-btn {
+        display: flex;
+        align-items: center;
+        background-color: $indigo;
+        border-radius: $button-radius;
+        color: $white;
+        padding: 0.5rem;
+    }
+
+    &__edit-btn-word {
+        display: none;
+
+        @include tablet {
+            display: inline;
+            padding: 0 $paddingInComponents;
+        }
+    }
+}

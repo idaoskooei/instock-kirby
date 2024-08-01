@@ -17,6 +17,7 @@ $grey: #f7f8f9; //Light-Grey:  Page background,table column header background, C
 $green: #158463; //Green:  “In stock” label
 $red: #c94515; //Red:  “Out of stock” label, error states & delete icon
 
+
 //------------------------mixin for-size:
 $tablet: 768px;
 $desktop: 1280px;
@@ -27,18 +28,25 @@ $paddingTablet: 2.4rem;
 
 //breakpoints--------:
 
+
 $breakpoint-tablet-min: 768px;
-$breakpoint-tablet-max: 1079px;
-$breakpoint-desktop: 1081px;
+$breakpoint-tablet-max: 1279px;
+$breakpoint-desktop: 1281px;
 
 //padding
 $paddingMobile: 1rem;
 $paddingTablet: 1.5rem;
 $paddingInComponents: 0.25rem;
+$headingPadding: 1.5rem;
+
 //button
 $button-radius: 1.25rem;
+
 //form variables
 $mobile-form-height: 2.25rem;
 $tablet-form-height: 2.375rem;
 $form-padding: 1rem;
 $form-input-radius: 1.25rem;
+
+//divider
+$divider: 1px solid $cloud;
