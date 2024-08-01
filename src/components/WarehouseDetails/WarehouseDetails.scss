@@ -1,0 +1,43 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/breakpoints" as *;
+
+.details {
+    background-color: $white;
+    color: $black;
+    display: flex;
+    flex-direction: column;
+    border-bottom: $divider;
+
+    @include tablet {
+        border: none;
+    }
+
+    &__contact-wrapper {
+        margin: $paddingMobile;
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+            margin: $paddingTablet;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    &__address-wrapper {
+        margin-bottom: $headingPadding;
+    }
+
+    &__contact-info {
+        display: flex;
+        gap: $paddingTablet;
+        @include tablet {
+            padding-left: $paddingTablet;
+            border-left: $divider;
+        }
+    }
+
+    &__label {
+        color: $slate;
+    }
+}

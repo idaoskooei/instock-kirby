@@ -2,84 +2,81 @@
 @use "../../styles/partials/variables" as vars;
 @use "../../styles/partials/typography";
 
-.header{
-  background-color: vars.$graphite;
-  display: flex;
-  flex-direction: column;
-  height: 12.75rem;
-  padding-top: 2rem;
-  padding-bottom: 1rem;
-  @include for-size(tablet){
-      display: flex;
-      height: 11.625rem;
-      padding-top: 0;
-
-  }
-  @include for-size(desktop){
-      height: 11.625rem;
-      padding-top: 0;
-  }
-  &__logo{
+.header {
+    background-color: vars.$graphite;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    height: 12.75rem;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    @include tablet {
+        display: flex;
+        height: 11.625rem;
+        padding-top: 0;
+    }
+    @include desktop {
+        height: 11.625rem;
+        padding-top: 0;
+    }
+    &__logo {
+        display: flex;
+        justify-content: center;
 
-    @include for-size(tablet) {
-      justify-content: flex-start;
-      margin-top: 0;
+        @include tablet {
+            justify-content: flex-start;
+            margin-top: 0;
+        }
+
+        @include desktop {
+            justify-content: flex-start;
+            margin-top: 2.4rem;
+        }
+    }
+    &__container {
+        padding: 0 1rem;
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        @include desktop {
+            padding: 0 8.125rem;
+        }
     }
 
-    @include for-size(desktop){
-      justify-content: flex-start;
-      margin-top: 2.4rem;
-  }
-  }
-  &__container{
-    padding: 0 1rem;
-    @include for-size(tablet){
+    &__list {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 2rem;
-    }
-    @include for-size(desktop){
-        padding: 0 8.125rem;
-    }
-  }
+        justify-content: end;
+        margin-top: 1.5rem;
 
-    &__list{
-          display:flex;
-          flex-direction: row;
-          justify-content:end;
-          margin-top: 1.5rem;
-          
-          @include for-size(tablet) {
-            justify-content: flex-end; 
+        @include tablet {
+            justify-content: flex-end;
             margin-top: 0;
-          }
-         
-      }
-      &__list-item{
-              padding: 0.5rem 1rem ;
-              text-align: center;
-              border-radius: 1.25rem;
-              font-weight: bold;
-              color: vars.$white;   
-              background-color: transparent;
-              transition: background-color 0.3s, color 0.3s;
-              text-decoration: none;
+        }
+    }
+    &__list-item {
+        padding: 0.5rem 1rem;
+        text-align: center;
+        border-radius: 1.25rem;
+        font-weight: bold;
+        color: vars.$white;
+        background-color: transparent;
+        transition: background-color 0.3s, color 0.3s;
+        text-decoration: none;
 
-              &:hover {
-                background-color: lighten(vars.$graphite, 10%);
-              }
-             &--active {
-               background-color: vars.$graphite;
-               color: vars.$white;
-              }
-              @include for-size(tablet) {
-                justify-content: flex-end; 
-                margin-top: 0;
-              }
-              
-          }
+        &:hover {
+            background-color: lighten(vars.$graphite, 10%);
+        }
+        &--active {
+            background-color: vars.$graphite;
+            color: vars.$white;
+        }
+        @include tablet {
+            justify-content: flex-end;
+            margin-top: 0;
+        }
+    }
 }
