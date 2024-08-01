@@ -24,7 +24,7 @@ const AddWarehouseForm = () => {
         event.preventDefault();
 
         axios
-        .post('http://localhost:8000/api/warehouses', {
+        .post('http://localhost:8080/api/warehouses', {
             'warehouse_name': warehouseName,
             'address': address,
             'city': city,
