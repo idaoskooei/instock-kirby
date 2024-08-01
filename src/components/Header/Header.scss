@@ -26,17 +26,23 @@
     display: flex;
     justify-content: center;
 
+    @include tablet {
+        justify-content: flex-start;
+    }
+
+    @include desktop {
+        justify-content: flex-start;
+    }
+
     &__img {
         width: 9rem;
 
         @include tablet {
-            justify-content: flex-start;
             width: 7rem;
             margin: 0 auto 0 0;
             padding-top: 0.25rem;
         }
         @include desktop {
-            justify-content: flex-start;
             margin-top: 2.4rem;
         }
     }
@@ -45,12 +51,18 @@
 .nav {
     display: flex;
     justify-content: center;
-    gap: 1rem;
-    padding: 0 1rem;
+    gap: 3rem;
+    // padding: 0rem 1rem;
 
     @include tablet {
         margin: 0 0 0 auto;
-        padding: 0;
+        padding: 1;
+    }
+
+    @include desktop {
+        justify-content: flex-start;
+        margin: 0 0 0 auto;
+        padding: 1;
     }
 
     &__item {
@@ -58,7 +70,7 @@
         justify-content: center;
         align-items: center;
         height: 2.75rem;
-        width: 50%;
+        // width:30%;
 
         font-family: "Titillium Web", sans-serif;
         font-weight: 600;

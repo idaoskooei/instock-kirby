@@ -105,45 +105,31 @@
 
 .buttons-container {
     display: flex;
-    flex-direction: row;
+    justify-content: flex-end;
     background-color: vars.$grey;
     padding: 2rem 0;
-    margin-left: auto;
-    margin-right: 0;
-    width: 100%;
     gap: 1rem;
 
     &__cancel {
         font-family: "Titillium Web", sans-serif;
         font-weight: 600;
         height: 2.5rem;
-        width: 50%;
+        width: 10rem;
         color: vars.$black;
         background-color: vars.$white;
         border: 1px solid vars.$cloud;
         border-radius: 1.5rem;
-        margin-left: 2rem;
-
-        @include tablet {
-            width: 4.5rem;
-            margin-left: auto;
-        }
     }
 
     &__add {
         font-family: "Titillium Web", sans-serif;
         font-weight: 600;
         height: 2.5rem;
-        width: 50%;
+        width: 10rem;
         color: vars.$white;
         background-color: vars.$indigo;
         border: 1px solid vars.$cloud;
         border-radius: 1.5rem;
-        margin-right: 2rem;
-
-        @include tablet {
-            width: 9rem;
-        }
     }
 }
 
