@@ -1,0 +1,28 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/global" as *;
+.main-page {
+    &-title {
+        padding: $paddingMobile 0;
+    }
+    &-header {
+        padding: $paddingMobile;
+    }
+}
+.btn {
+    margin-top: $paddingMobile*0.5;
+    font-weight: 500;
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+    height: 2.4rem;
+    background-color: $indigo;
+    color: $white;
+    border-radius: $button-radius;
+    &:hover {
+    background-color: $black;
+        cursor: pointer;
+    }
+}

@@ -28,9 +28,9 @@ h1,
 h2,
 h3,
 h4,
-p .p1,
-p .p2,
-p .p3,
+.p1,
+.p2,
+.p3,
 ul,
 li,
 span,
@@ -42,12 +42,6 @@ a {
     color: $black;
     text-align: left;
 }
-button {
-    background: none;
-    border: none;
-    color: inherit;
-    cursor: pointer;
-    &:hover {
-        transform: scale(1.1);
-    }
-}
+.icon:hover{
+    transform: scale(1.01);
+  }
