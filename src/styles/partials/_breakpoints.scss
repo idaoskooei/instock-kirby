@@ -1,4 +1,5 @@
-@use "variables" as *;
+@use "../../styles/partials/variables" as *;
+
 
 @mixin desktop {
   @media (min-width: $breakpoint-desktop) {
