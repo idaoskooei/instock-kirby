@@ -1,7 +1,7 @@
 import './MainPageHeader.scss';
 import React from "react";
 import { Link } from "react-router-dom";
-import SearchBar from "../SearchBar/SearchBar.jsx";
+import SearchBar from "../SearchBar/SearchBar";
 
 const MainPageHeader = ({ title, addButtonText, addButtonLink }) => {
   return (
