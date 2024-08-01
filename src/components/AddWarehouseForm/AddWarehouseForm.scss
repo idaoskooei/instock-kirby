@@ -43,6 +43,11 @@
         flex-direction: row;
         gap: 2rem;
     }
+
+    @include desktop {
+        flex-direction: row;
+        gap: 2rem;
+    }
 }
 
 .details-container {
@@ -51,12 +56,17 @@
 
     @include tablet {
         width: 50%;
-        border-bottom: 0px;
+        border-bottom: 0;
+    }
+
+    @include desktop {
+        width: 50%;
+        border-bottom: 0;
     }
 
     &--borderless {
         padding: 2rem 0;
-        border-bottom: 0px;
+        border-bottom: 0;
 
         @include tablet {
             padding: 0;
@@ -66,9 +76,10 @@
         }
 
         @include desktop {
-            padding-left: 1rem;
-            display: flex;
-            flex-direction: column;
+            padding: 0;
+            margin: 2rem 0;
+            border-left: 1px solid #BDC5D5;
+            width: 50%;
         }
     }
 
