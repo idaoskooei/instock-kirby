@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "./InventoryForm.scss";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
@@ -22,6 +23,7 @@ const AddNewInventory = () => {
     const [selectedWarehouse, setSelectedWarehouse] = useState(null);
     const [isFormValid, setIsFormValid] = useState(true);
     const API_BASE_URL = import.meta.env.VITE_APP_BASE_URL;
+    const navigate = useNavigate();
 
     //handle input changes
     const handleItemNameChange = (event) => {
@@ -48,6 +50,10 @@ const AddNewInventory = () => {
         setSelectedWarehouse(option.value);
     };
 
+    const handleCancelClick = (event) => {
+        event.preventDefault();
+        navigate("/");
+    };
     //useEffect to load list of warehouse
     const getWarehouses = async () => {
         try {
@@ -83,7 +89,9 @@ const AddNewInventory = () => {
                                 Item Details
                             </h2>
                         </legend>
-                        <label htmlFor="name">Name</label>
+                        <label className="inventory-form__label" htmlFor="name">
+                            Name
+                        </label>
                         <input
                             type="text"
                             className="inventory-form__input"
@@ -93,7 +101,12 @@ const AddNewInventory = () => {
                             onChange={handleItemNameChange}
                             value={itemName}
                         />
-                        <label htmlFor="description">Description</label>
+                        <label
+                            className="inventory-form__label"
+                            htmlFor="description"
+                        >
+                            Description
+                        </label>
                         <textarea
                             className={
                                 isFormValid
@@ -106,7 +119,11 @@ const AddNewInventory = () => {
                             onChange={handleDescriptionChange}
                             value={description}
                         ></textarea>
-                        <label id="category-label" htmlFor="category-dropdown">
+                        <label
+                            className="inventory-form__label"
+                            id="category-label"
+                            htmlFor="category-dropdown"
+                        >
                             Category
                         </label>
                         <Dropdown
@@ -126,20 +143,20 @@ const AddNewInventory = () => {
                             </h2>
                         </legend>
 
-                        <label>Status</label>
+                        <label className="inventory-form__label">Status</label>
                         <div className="inventory-form__radio-wrapper">
-                            <label>
+                            <label className="inventory-form__label inventory-form__label--radio-btn">
                                 <input
                                     type="radio"
                                     name="status"
                                     value="In Stock"
                                     checked={status === "In Stock"}
                                     onChange={handleStatusChange}
-                                    className="inventory-form__radio-btn"
+                                    className="inventory-form__radio-btn "
                                 />
                                 In Stock
                             </label>
-                            <label>
+                            <label className="inventory-form__label inventory-form__label--radio-btn">
                                 <input
                                     type="radio"
                                     name="status"
@@ -154,7 +171,12 @@ const AddNewInventory = () => {
 
                         {status === "In Stock" && (
                             <div>
-                                <label htmlFor="quantity">Quantity</label>
+                                <label
+                                    className="inventory-form__label"
+                                    htmlFor="quantity"
+                                >
+                                    Quantity
+                                </label>
                                 <input
                                     type="number"
                                     className="inventory-form__input"
@@ -167,6 +189,7 @@ const AddNewInventory = () => {
                             </div>
                         )}
                         <label
+                            className="inventory-form__label"
                             id="warehouse-label"
                             htmlFor="warehouse-dropdown"
                         >
@@ -185,11 +208,22 @@ const AddNewInventory = () => {
                         />
                     </div>
                 </div>
-                <div>
-                    <button>Cancel</button>
-                    <button>Add Item</button>
-                </div>
             </form>
+            <div className="inventory-form__buttons-container">
+                <button
+                    onClick={handleCancelClick}
+                    className="inventory-form__button inventory-form__button--cancel"
+                >
+                    Cancel
+                </button>
+                <button
+                    type="submit"
+                    form="inventory-form"
+                    className="inventory-form__button inventory-form__button--add"
+                >
+                    + Add Item
+                </button>
+            </div>
         </div>
     );
 };
