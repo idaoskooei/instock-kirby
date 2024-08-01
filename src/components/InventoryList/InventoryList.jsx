@@ -41,10 +41,16 @@ const InventoryList = ({ warehouseId, showWarehouseName }) => {
           <h2>
             <Link to={`/inventory/${item.id}`}>{item.name}</Link>
           </h2>
-          <p>Category: {item.category}</p>
-          <p>Status: {item.status}</p>
-          <p>Quantity: {item.quantity}</p>
-          {showWarehouseName && <p>Warehouse: {item.warehouse}</p>}
+          <p>CATEGORY {item.category}</p>
+          <p>STATUS {item.status}</p>
+          <p>QTY {item.quantity}</p>
+          {showWarehouseName && <p>WAREHOUSE {item.warehouse}</p>}
+          {/* <div className="actions">
+            <h4>ACTIONS</h4>
+            <Link to={`/inventory/${item.id}/edit`}>
+              <img src={"../../icons/edit-24px.jsx"} alt="Edit" />
+            </Link>
+          </div> */}
         </li>
       ))}
     </ul>
