@@ -31,7 +31,8 @@ h4 {
 ul,
 li,
 span,
-a {
+a,
+label {
     @include font(0.9375rem, 1.625rem, 400);
 }
 // desktop & tablet text styles:
@@ -61,7 +62,8 @@ a {
     ul,
     li,
     span,
-    a {
+    a,
+    label {
         @include font(1rem, 1.75rem, 500);
     }
 }

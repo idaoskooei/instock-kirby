@@ -1,5 +1,4 @@
 import "./WarehouseDetails.scss";
-import DetailsPageHeader from "../DetailsPageHeader/DetailsPageHeader";
 
 const WarehouseDetails = ({ warehouse }) => {
     const {
@@ -16,9 +15,6 @@ const WarehouseDetails = ({ warehouse }) => {
 
     return (
         <div className="details">
-            <div>
-                <DetailsPageHeader name={warehouse_name} hasEdit={true} />
-            </div>
             <div className="details__contact-wrapper">
                 <div className="details__address-wrapper">
                     <h4 className="details__label">WAREHOUSE ADDRESS</h4>
