@@ -10,9 +10,11 @@ import EditInventoryPage from "./pages/EditInventoryPage/EditInventoryPage";
 import AddInventoryPage from "./pages/AddInventoryPage/AddInventoryPage";
 import AddWarehousePage from "./pages/AddWarehousePage/AddWarehousePage";
 import Header from "./components/Header/Header";
-import { Navigate } from "react-router-dom";
+import { Navigate } from 'react-router-dom';
+import Footer from "./components/Footer/Footer";
 
 function App() {
+
     return (
         <Router>
             <Header />
