@@ -3,6 +3,7 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer"
 
 import WarehousePage from "./pages/WarehousePage/WarehousePage";
 // import WarehouseDetailsPage from "./pages/WarehouseDetailsPage/WarehouseDetailsPage";
@@ -31,7 +32,7 @@ function App() {
           <Route path="/add-warehouse" element={<AddWarehousePage />} />
           </Routes>
         </div>
-        {/* <Footer /> */}
+        <Footer />
       </section>
     </BrowserRouter>
   );

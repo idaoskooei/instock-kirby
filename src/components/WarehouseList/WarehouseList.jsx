@@ -32,7 +32,7 @@ const WarehouseList = () => {
   }
 
     return (
-
+      <>
       <ul className="warehouses__list">
 
         {warehouses.map((warehouse) => (
@@ -85,7 +85,7 @@ const WarehouseList = () => {
         </Link>
         ))}
         </ul>
+        </>
     )};
     
 export default WarehouseList;
-  
