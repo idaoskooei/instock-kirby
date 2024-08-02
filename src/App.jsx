@@ -11,7 +11,7 @@ import WarehouseDetailsPage from "./pages/WarehouseDetailsPage/WarehouseDetailsP
 import InventoryPage from "./pages/InventoryPage/InventoryPage";
 // import InventoryDetailsPage from "./pages/InventoryDetailsPage/InventoryDetailsPage";
 // import EditInventoryPage from "./pages/EditInventoryPage/EditInventoryPage";
-import AddInventoryPage from "./pages/AddInventoryPage/AddInventoryPage";
+import InventoryFormPage from "./pages/InventoryFormPage/InventoryFormPage";
 import AddWarehousePage from "./pages/AddWarehousePage/AddWarehousePage";
 // import DeleteInventory from "./components/DeleteInventory/DeleteInventory";
 
@@ -36,11 +36,11 @@ function App() {
                         {/* <Route path="/inventory/:id" element={<InventoryDetailsPage />} /> */}
                         <Route
                             path="/inventory/:id/edit"
-                            element={<AddInventoryPage />}
+                            element={<InventoryFormPage />}
                         />
                         <Route
                             path="/add-inventory"
-                            element={<AddInventoryPage />}
+                            element={<InventoryFormPage />}
                         />
                         <Route
                             path="/add-warehouse"

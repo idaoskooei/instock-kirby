@@ -4,27 +4,8 @@ import iconDelet from "../../assets/Icons/delete_outline-24px.svg";
 import iconEdit from "../../assets/Icons/edit-24px.svg";
 import iconChevron from "../../assets/Icons/chevron_right-24px.svg";
 import sort from "../../assets/Icons/sort-24px.svg";
-// import { useEffect, useState } from "react";
-// import axios from "axios";
-
-// const URL = import.meta.env.VITE_APP_BASE_URL;
 
 const WarehouseList = ({ warehouses }) => {
-    // const [warehouses, setWarehouses] = useState([]);
-
-    // useEffect(() => {
-    //   const findWarehousesAll = async () => {
-    //     try {
-    //       const response = await axios.get(`${URL}/api/warehouses`);
-    //       setWarehouses(response.data);
-    //     } catch (e) {
-    //       console.error("Error fetching warehouses:", e);
-    //     }
-    //   };
-    //   findWarehousesAll();
-    //   console.log(warehouses);
-    // }, []);
-
     if (warehouses.length === 0) {
         return <>No wearhouses match the search</>;
     }
