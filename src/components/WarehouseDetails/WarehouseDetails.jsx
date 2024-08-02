@@ -17,7 +17,13 @@ const WarehouseDetails = ({ warehouse }) => {
             <div className="details__contact-wrapper">
                 <div className="details__address-wrapper">
                     <h4 className="details__label">WAREHOUSE ADDRESS</h4>
-                    <p className="p2">{`${address}, ${city}, ${country}`}</p>
+                    <div className="details__address--mobile">
+                        <p className="p2">{`${address}, ${city}, ${country}`}</p>
+                    </div>
+                    <div className="details__address--tablet">
+                        <p className="p2">{address}</p>
+                        <p className="p2">{`${city}, ${country}`}</p>
+                    </div>
                 </div>
                 <div className="details__contact-info">
                     <div>
