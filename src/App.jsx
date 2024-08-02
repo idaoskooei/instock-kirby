@@ -13,7 +13,7 @@ import InventoryPage from "./pages/InventoryPage/InventoryPage";
 // import EditInventoryPage from "./pages/EditInventoryPage/EditInventoryPage";
 import AddInventoryPage from "./pages/AddInventoryPage/AddInventoryPage";
 import AddWarehousePage from "./pages/AddWarehousePage/AddWarehousePage";
-import DeleteInventory from "./pages/DeleteInventory/DeleteInventory"; 
+import DeleteInventory from "./components/DeleteInventory/DeleteInventory"; 
 
 function App() {
     return (
