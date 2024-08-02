@@ -47,7 +47,3 @@ The project was developed by:
 ## License
 
 This project is open-source and intended for personal learning and training purposes only. Commercial use is not permitted.
-
-## Project Status
-
-The project is complete and was a key component of my diploma program at BrainStation, focusing on React, Express, and agile development principles.
