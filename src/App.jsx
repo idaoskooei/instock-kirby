@@ -3,7 +3,7 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer"
+import Footer from "./components/Footer/Footer";
 
 import WarehousePage from "./pages/WarehousePage/WarehousePage";
 // import WarehouseDetailsPage from "./pages/WarehouseDetailsPage/WarehouseDetailsPage";
@@ -11,7 +11,7 @@ import WarehousePage from "./pages/WarehousePage/WarehousePage";
 // import InventoryPage from "./pages/InventoryPage/InventoryPage";
 // import InventoryDetailsPage from "./pages/InventoryDetailsPage/InventoryDetailsPage";
 // import EditInventoryPage from "./pages/EditInventoryPage/EditInventoryPage";
-// import AddInventoryPage from "./pages/AddInventoryPage/AddInventoryPage";
+import AddInventoryPage from "./pages/AddInventoryPage/AddInventoryPage";
 import AddWarehousePage from "./pages/AddWarehousePage/AddWarehousePage";
 import DeleteInventory from "./pages/DeleteInventory/DeleteInventory"; 
 

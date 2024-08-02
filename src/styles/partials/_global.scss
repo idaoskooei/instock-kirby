@@ -14,6 +14,7 @@ html {
 *:before,
 *:after {
     box-sizing: inherit;
+    font-family: inherit;
 }
 body {
     width: 100%;
@@ -42,6 +43,15 @@ a {
     color: $black;
     text-align: left;
 }
-.icon:hover{
+button {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+}
+textarea {
+    resize: none;
+}
+.icon:hover {
     transform: scale(1.01);
-  }
+}
