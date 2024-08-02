@@ -141,10 +141,12 @@
             @include tablet{ 
                 display: flex;
                 padding: $paddingTablet*0.5 $paddingTablet; 
+                background-color: $grey;
             }
             @include  desktop {
                 display: flex;
                 padding: $paddingTablet*0.5 6vw;
+                background-color: $grey;
             }
         }
         &-left {

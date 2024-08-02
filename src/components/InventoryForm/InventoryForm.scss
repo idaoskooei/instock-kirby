@@ -1,0 +1,180 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/breakpoints" as *;
+
+.inventory-form {
+    display: flex;
+    flex-direction: column;
+    background-color: $white;
+    padding: 0 $paddingMobile;
+
+    @include tablet {
+        padding: 0 $paddingTablet;
+    }
+
+    &__form-wrapper {
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+            flex-direction: row;
+            margin: $paddingTablet 0;
+        }
+    }
+
+    &__section {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        &--divider {
+            border-top: $divider;
+
+            @include tablet {
+                border-top: none;
+                border-left: $divider;
+                padding-left: $paddingTablet;
+            }
+        }
+
+        &--padding {
+            @include tablet {
+                padding-right: $paddingTablet;
+            }
+        }
+    }
+    &__label {
+        font-size: 0.8125rem;
+        font-weight: bold;
+
+        &--radio-btn {
+            font-size: 0.9375rem;
+            font-weight: normal;
+        }
+    }
+
+    &__input {
+        width: 100%;
+        height: $mobile-form-height;
+        margin-top: $paddingInComponents;
+        margin-bottom: $paddingMobile;
+        border-radius: $form-input-radius;
+        padding: $form-padding;
+        border: 1px solid $cloud;
+
+        @include tablet {
+            height: $tablet-form-height;
+        }
+
+        &--textarea {
+            height: 7.5rem;
+
+            &::placeholder {
+                color: $slate;
+            }
+        }
+
+        &--error {
+            border: 1px solid $red;
+            margin-bottom: 0;
+        }
+
+        &:active,
+        &:focus {
+            outline: none;
+            border: 1px solid $indigo;
+        }
+
+        &::placeholder {
+            color: $slate;
+        }
+    }
+
+    &__dropdown .Dropdown-control {
+        margin-top: $paddingInComponents;
+        margin-bottom: $paddingTablet;
+        border-radius: $form-input-radius;
+        height: $mobile-form-height;
+        border-color: $cloud;
+        padding: 6px 16px;
+        font-size: 14px;
+
+        @include tablet {
+            height: $tablet-form-height;
+        }
+
+        &--error {
+            border: 1px solid $red;
+            margin-bottom: 0;
+        }
+
+        &:active,
+        &:focus {
+            outline: none;
+            border: 1px solid $indigo;
+        }
+    }
+
+    &__dropdown .Dropdown-menu {
+        font-size: 14px;
+    }
+
+    &__dropdown .Dropdown-placeholder {
+        color: $slate;
+    }
+
+    &__header {
+        margin: $paddingMobile 0;
+    }
+
+    &__radio-wrapper {
+        display: flex;
+        width: 100%;
+        gap: 4rem;
+    }
+
+    &__radio-btn {
+        margin-right: $paddingInComponents;
+    }
+
+    &__buttons-container {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        background-color: $grey;
+        padding: $paddingMobile;
+
+        @include tablet {
+            padding: $paddingTablet;
+            justify-content: flex-end;
+        }
+    }
+
+    &__button {
+        flex: 1;
+        border-radius: $button-radius;
+        padding: 0.25rem;
+        border: $divider;
+        font-weight: bold;
+
+        @include tablet {
+            flex: none;
+            padding: 0.5rem $button-LR-padding;
+        }
+
+        &--cancel {
+            background-color: $white;
+            margin-right: $paddingMobile;
+            &:hover {
+                border: 1px solid $indigo;
+                color: $indigo;
+            }
+        }
+
+        &--add {
+            background-color: $indigo;
+            color: $white;
+            &:hover {
+                background-color: $graphite;
+            }
+        }
+    }
+}

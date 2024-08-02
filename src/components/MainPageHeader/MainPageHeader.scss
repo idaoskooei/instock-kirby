@@ -2,13 +2,46 @@
 @use "../../styles/partials/breakpoints" as *;
 @use "../../styles/partials/global" as *;
 .main-page {
-    &-title {
-        padding: $paddingMobile 0;
-    }
     &-header {
-        padding: $paddingMobile;
+        padding: 0 $paddingMobile $paddingMobile*2 $paddingMobile;
+        display: flex;
+        flex-direction: column;
+        justify-content:flex-end;
+        align-items: flex-start;
+        @include tablet{
+            flex-direction: row;
+            padding: $headingPadding $paddingTablet 0 $paddingTablet;
+            align-items: flex-end;
+        }
+        @include  desktop {
+            flex-direction: row;
+            padding: $headingPadding $paddingTablet 0 $paddingTablet;
+            align-items: flex-end;
+        }
+    }
+    &-title {
+        padding: $headingPadding 0;
+    }
+    &-toorbar {
+        display: flex;
+        width: 100%;
+        justify-content:flex-end;
+        flex-direction: column;
+        @include tablet{
+            flex-direction: row;
+            justify-content:flex-end;
+            align-items: center;
+            padding: $headingPadding 0;
+        }
+        @include  desktop {
+            flex-direction: row;
+            justify-content:flex-end;
+            align-items: center;
+            padding: $headingPadding 0;
+        }
     }
 }
+
 .btn {
     margin-top: $paddingMobile*0.5;
     font-weight: 500;
@@ -17,12 +50,20 @@
     flex-direction: row;
     justify-content:center;
     align-items: center;
-    height: 2.4rem;
+    height: 2.25rem;
     background-color: $indigo;
     color: $white;
     border-radius: $button-radius;
+    @include tablet{
+        margin-top: 0;
+        padding: 0 1rem;
+    }
+    @include  desktop {
+        margin-top: 0;
+        padding: 0 1rem;
+    }
     &:hover {
-    background-color: $black;
+    background-color: $graphite;
         cursor: pointer;
     }
 }

@@ -1,14 +1,13 @@
-@use "../../styles/partials/variables" as *;
-
-
-@mixin desktop {
-  @media (min-width: $breakpoint-desktop) {
-    @content;
-  }
-}
+@use "./variables" as *;
 
 @mixin tablet {
-  @media (min-width: $breakpoint-tablet-min) and (max-width: $breakpoint-tablet-max) {
-    @content;
-  }
+    @media screen and (min-width: $breakpoint-tablet-min) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width: $breakpoint-desktop) {
+        @content;
+    }
 }
