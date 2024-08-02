@@ -10,10 +10,9 @@ import WarehouseDetailsPage from "./pages/WarehouseDetailsPage/WarehouseDetailsP
 import EditWarehousePage from "./pages/EditWarehousePage/EditWarehousePage";
 import InventoryPage from "./pages/InventoryPage/InventoryPage";
 // import InventoryDetailsPage from "./pages/InventoryDetailsPage/InventoryDetailsPage";
-// import EditInventoryPage from "./pages/EditInventoryPage/EditInventoryPage";
-import AddInventoryPage from "./pages/AddInventoryPage/AddInventoryPage";
+import InventoryFormPage from "./pages/InventoryFormPage/InventoryFormPage";
 import AddWarehousePage from "./pages/AddWarehousePage/AddWarehousePage";
-import DeleteInventory from "./components/DeleteInventory/DeleteInventory"; 
+// import DeleteInventory from "./components/DeleteInventory/DeleteInventory";
 
 function App() {
     return (
@@ -26,45 +25,38 @@ function App() {
                             path="/"
                             element={<Navigate to="/warehouses" />}
                         />
-                        <Route
-                         path="/warehouses" 
-                        element={<WarehousePage />} 
-                        />
+                        <Route path="/warehouses" element={<WarehousePage />} />
                         <Route
                             path="/warehouses/:id"
                             element={<WarehouseDetailsPage />}
                         />
                         <Route
-                         path="/warehouses/edit/:id" 
-                         element={<EditWarehousePage />} 
-                         />
-                        <Route
-                         path="/inventory" 
-                         element={<InventoryPage />} 
-                         />
+                            path="/warehouses/edit/:id"
+                            element={<EditWarehousePage />}
+                        />
+                        <Route path="/inventory" element={<InventoryPage />} />
                         {/* <Route path="/inventory/:id" element={<InventoryDetailsPage />} /> */}
                         <Route
                             path="/inventory/:id/edit"
-                            element={<AddInventoryPage />}
+                            element={<InventoryFormPage />}
                         />
                         <Route
                             path="/add-inventory"
-                            element={<AddInventoryPage />}
+                            element={<InventoryFormPage />}
                         />
                         <Route
                             path="/add-warehouse"
                             element={<AddWarehousePage />}
                         />
-                        <Route 
-                        path="/inventory/:id/delete"
-                         element={<DeleteInventory />} 
-                         />
+                        {/* <Route
+                            path="/inventory/:id/delete"
+                            element={<DeleteInventory />}
+                        /> */}
                     </Routes>
                 </div>
                 <Footer />
             </section>
         </BrowserRouter>
     );
-
 }
 export default App;

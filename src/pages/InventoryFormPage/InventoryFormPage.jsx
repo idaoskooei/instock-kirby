@@ -1,7 +1,7 @@
 import InventoryForm from "../../components/InventoryForm/InventoryForm.jsx";
 import DetailsPageHeader from "../../components/DetailsPageHeader/DetailsPageHeader.jsx";
 
-const AddInventoryPage = () => {
+const InventoryFormPage = () => {
     return (
         <>
             <DetailsPageHeader name="Add New Inventory Item" />
@@ -10,4 +10,4 @@ const AddInventoryPage = () => {
     );
 };
 
-export default AddInventoryPage;
+export default InventoryFormPage;
