@@ -28,12 +28,35 @@
         margin-bottom: $headingPadding;
     }
 
+    &__address {
+        &--mobile {
+            @include tablet {
+                display: none;
+            }
+        }
+
+        &--tablet {
+            display: none;
+
+            @include tablet {
+                display: inline;
+            }
+        }
+    }
+
     &__contact-info {
         display: flex;
         gap: $paddingTablet;
+
         @include tablet {
             padding-left: $paddingTablet;
             border-left: $divider;
+            width: 55%;
+        }
+
+        @include desktop {
+            padding-left: 3rem;
+            gap: 6rem;
         }
     }
 

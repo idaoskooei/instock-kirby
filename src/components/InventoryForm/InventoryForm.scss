@@ -44,11 +44,6 @@
     &__label {
         font-size: 0.8125rem;
         font-weight: bold;
-
-        &--radio-btn {
-            font-size: 0.9375rem;
-            font-weight: normal;
-        }
     }
 
     &__input {
@@ -133,6 +128,16 @@
 
     &__radio-btn {
         margin-right: $paddingInComponents;
+    }
+
+    &__radio-btn-lbl {
+        font-size: 0.9375rem;
+        font-weight: normal;
+        color: $black;
+
+        &--grey {
+            color: $slate;
+        }
     }
 
     &__buttons-container {
