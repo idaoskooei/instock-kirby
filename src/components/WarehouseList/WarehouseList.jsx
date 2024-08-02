@@ -6,11 +6,14 @@ import iconChevron from "../../assets/Icons/chevron_right-24px.svg";
 import sort from "../../assets/Icons/sort-24px.svg";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate, NavLink } from "react-router-dom";
 
-// const URL = import.meta.env.VITE_APP_BASE_URL;
+
 const URL = 'http://localhost:8080';
 
 const WarehouseList = () => {
+
+  const navigate = useNavigate();
 
   const [warehouses, setWarehouses] = useState([]);
 
@@ -26,6 +29,11 @@ const WarehouseList = () => {
     findWarehousesAll();
     console.log(warehouses);
   }, []); 
+
+    const handleEditClick = (id) => {
+    navigate(`/warehouses/edit/${id}`);
+  };
+
 
   if (warehouses.length === 0) {
     return <>Loading warehouses...</>;
@@ -91,7 +99,7 @@ const WarehouseList = () => {
           
           <div className="warehouse__row--icons">
               <img className="icon" src={iconDelet} alt='icon delet' />
-              <img className="icon" src={iconEdit} alt='icon edit' />
+              <img className="icon" src={iconEdit} alt='icon edit'  onClick={() => handleEditClick(warehouse.id)}/>
           </div>
       </li>
       ))}
