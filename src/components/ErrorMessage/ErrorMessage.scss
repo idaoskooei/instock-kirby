@@ -1,0 +1,16 @@
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/variables" as *;
+
+.errmsg {
+    display: flex;
+    color: $red;
+    padding: $paddingInComponents 0 $paddingMobile;
+    font-weight: 400;
+    font-size: 12px;
+
+    &__icon {
+        width: 13.33px;
+        height: 13.33px;
+        margin: $paddingInComponents;
+    }
+}
