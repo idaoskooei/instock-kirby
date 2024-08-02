@@ -13,6 +13,7 @@ import InventoryPage from "./pages/InventoryPage/InventoryPage";
 // import EditInventoryPage from "./pages/EditInventoryPage/EditInventoryPage";
 import AddInventoryPage from "./pages/AddInventoryPage/AddInventoryPage";
 import AddWarehousePage from "./pages/AddWarehousePage/AddWarehousePage";
+import DeleteInventory from "./pages/DeleteInventory/DeleteInventory"; 
 
 function App() {
     return (
@@ -45,11 +46,13 @@ function App() {
                             path="/add-warehouse"
                             element={<AddWarehousePage />}
                         />
+                        <Route path="/inventory/:id/delete" element={<DeleteInventory />} />
                     </Routes>
                 </div>
                 <Footer />
             </section>
         </BrowserRouter>
     );
+
 }
 export default App;
