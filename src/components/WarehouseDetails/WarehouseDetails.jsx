@@ -9,7 +9,6 @@ const WarehouseDetails = ({ warehouse }) => {
         contact_phone,
         contact_position,
         country,
-        warehouse_name,
     } = warehouse;
     console.log(warehouse);
 
