@@ -32,6 +32,10 @@
         border-radius: $button-radius;
         color: $white;
         padding: 0.5rem;
+
+        &:hover {
+            background-color: $graphite;
+        }
     }
 
     &__edit-btn-word {
