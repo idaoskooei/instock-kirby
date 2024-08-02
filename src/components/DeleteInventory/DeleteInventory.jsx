@@ -1,14 +1,19 @@
-import "./DeleteInventory.scss";
-import close from "../../assets/Icons/close-24px.svg";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import "./DeleteInventory.scss";
+import close from "../../assets/Icons/close-24px.svg";
+import Modal from "react-modal";
+
+// Make sure to set the app element for accessibility
+Modal.setAppElement("#root");
 
 // const URL = import.meta.env.VITE_APP_BASE_URL;
 const URL = 'http://localhost:8080';  
 
 const DeleteInventory = () => {
     const [inventory, setInventory] = useState(null);
+    const [modalIsOpen, setModalIsOpen] = useState(true);
     const { id } = useParams();
     const navigate = useNavigate();
 
@@ -37,6 +42,7 @@ const DeleteInventory = () => {
     };
 
     const handleCancel = () => {
+        setModalIsOpen(false);
         navigate('-1');
     };
 
@@ -45,7 +51,12 @@ const DeleteInventory = () => {
     }
 
     return (
-        <div>
+        <Modal
+            isOpen={modalIsOpen}
+            onRequestClose={handleCancel}
+            className="modal-content"
+            overlayClassName="modal-overlay"
+        >
             <img className="icon" src={close} alt="Close" onClick={handleCancel} />
             <h1>Delete Inventory Item?</h1>
             <p className="p3">
@@ -53,7 +64,7 @@ const DeleteInventory = () => {
             </p>
             <button className="__delete-btn" onClick={handleDelete}>Delete</button>
             <button className="__cancel-btn" onClick={handleCancel}>Cancel</button>
-        </div>
+        </Modal>
     );
 };
 

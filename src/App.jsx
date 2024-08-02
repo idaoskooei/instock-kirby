@@ -9,10 +9,10 @@ import WarehousePage from "./pages/WarehousePage/WarehousePage";
 import WarehouseDetailsPage from "./pages/WarehouseDetailsPage/WarehouseDetailsPage";
 import EditWarehousePage from "./pages/EditWarehousePage/EditWarehousePage";
 import InventoryPage from "./pages/InventoryPage/InventoryPage";
-// import InventoryDetailsPage from "./pages/InventoryDetailsPage/InventoryDetailsPage";
-import InventoryFormPage from "./pages/InventoryFormPage/InventoryFormPage";
-import AddWarehousePage from "./pages/AddWarehousePage/AddWarehousePage";
-// import DeleteInventory from "./components/DeleteInventory/DeleteInventory";
+import InventoryDetailsPage from "./pages/InventoryDetailsPage/InventoryDetailsPage";
+// import EditInventoryPage from "./pages/EditInventoryPage/EditInventoryPage";
+// import AddInventoryPage from "./pages/AddInventoryPage/AddInventoryPage";
+// import AddWarehousePage from "./pages/AddWarehousePage/AddWarehousePage";
 
 function App() {
     return (
@@ -35,8 +35,8 @@ function App() {
                             element={<EditWarehousePage />}
                         />
                         <Route path="/inventory" element={<InventoryPage />} />
-                        {/* <Route path="/inventory/:id" element={<InventoryDetailsPage />} /> */}
-                        <Route
+                        <Route path="/inventory/:id" element={<InventoryDetailsPage />} />
+                        {/* <Route
                             path="/inventory/:id/edit"
                             element={<InventoryFormPage />}
                         />
@@ -47,10 +47,6 @@ function App() {
                         <Route
                             path="/add-warehouse"
                             element={<AddWarehousePage />}
-                        />
-                        {/* <Route
-                            path="/inventory/:id/delete"
-                            element={<DeleteInventory />}
                         /> */}
                     </Routes>
                 </div>

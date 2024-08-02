@@ -1,44 +1,52 @@
 import "./InventoryDetails.scss";
 import DetailsPageHeader from "../DetailsPageHeader/DetailsPageHeader";
 
-const WarehouseDetails = ({ warehouse }) => {
+const InventoryDetails = ({ inventory }) => {
     const {
-        address,
-        city,
-        contact_email,
-        contact_name,
-        contact_phone,
-        contact_position,
-        country,
+        id,
         warehouse_name,
-    } = warehouse;
-    console.log(warehouse);
+        warehouse_id,
+        item_name,
+        description,
+        category,
+        status,
+        quantity,
+    } = inventory;
+    console.log(inventory);
+    
 
     return (
-        <div className="details">
-            <div>
-                <DetailsPageHeader name={warehouse_name} hasEdit={true} />
-            </div>
-            <div className="details__contact-wrapper">
-                <div className="details__address-wrapper">
-                    <h4 className="details__label">WAREHOUSE ADDRESS</h4>
-                    <p className="p2">{`${address}, ${city}, ${country}`}</p>
-                </div>
-                <div className="details__contact-info">
-                    <div>
-                        <h4 className="details__label">CONTACT NAME</h4>
-                        <p className="p2">{contact_name}</p>
-                        <p className="p2">{contact_position}</p>
+        <div className="details"> 
+              <div className="details__wrapper">
+                    <div className="details__column">
+                        <div>
+                            <h4 className="details__label">ITEM DESCRIPTION:</h4>
+                            <p className="p2">{description}</p>
+                        </div>
+                        <div>
+                            <h4 className="details__label">CATEGORY:</h4>
+                            <p className="p2">{category}</p>
+                        </div>
                     </div>
-                    <div>
-                        <h4 className="details__label">CONTACT INFORMATION:</h4>
-                        <p className="p2">{contact_phone}</p>
-                        <p className="p2">{contact_email}</p>
+                    <div className="details__column">
+                        <div className="details__column">
+                            <div className="details__column-left">
+                                <h4 className="details__label">STATUS:</h4>
+                                <p className="p2">{status}</p>
+                            </div>
+                            <div className="details__column">
+                                <h4 className="details__label">WAREHOUSE:</h4>
+                                <p className="p2">{quantity}</p>
+                            </div>
+                        </div>
+                        <div  className="details__column-left">
+                            <h4 className="details__label">QUANTITY:</h4>
+                            <p className="p2">{warehouse_name}</p>
+                        </div>
                     </div>
-                </div>
-            </div>
+             </div>
         </div>
     );
 };
 
-export default WarehouseDetails;
+export default InventoryDetails;
