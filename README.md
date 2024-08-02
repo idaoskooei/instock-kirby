@@ -25,7 +25,7 @@ Explore the API at [InStock API](https://github.com/KowsiyaS/Instock-API).
 To start the application locally:
 
 1. Navigate to the project directory in your terminal.
-2. Run `npm start` to launch the app.
+2. Run `npm run dev` to launch the app.
 
 ## Roadmap
 
