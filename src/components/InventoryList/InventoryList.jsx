@@ -77,58 +77,71 @@ const InventoryList = ({ warehouseId }) => {
             <img src={sort} className="icon" />
           </h4>
 
-          <h4 className="inventory__tablet-heading">
-            WAREHOUSE
-            <img src={sort} className="icon" />
-          </h4>
-        </div>
-        <h4 className="inventory__tablet-heading-actions">ACTIONS</h4>
-      </div>
-      {inventoryItems.map((item) => (
-        <li className="inventory__wrapper" key={item.id}>
-          <div className="inventory__row--infos">
-            <div className="inventory__column--left">
-              <div className="inventory__column">
-                <h4 className="inventory__heading">ITEM NAME</h4>
-
-                <Link
-                  className="inventory__link"
-                  to={`/inventory/${item.id}`}
-                  onClick={() => {
-                    window.scroll({
-                      top: 0,
-                      behavior: "smooth",
-                    });
-                  }}
-                >
-                  <h3 className="inventory__name">
-                    {item.item_name}
-                    <img src={iconChevron} className="icon" />
-                  </h3>
-                </Link>
-              </div>
-              <div className="inventory__column">
-                <h4 className="inventory__heading">CATEGORY</h4>
-                <p className="inventory__text">{item.category}</p>
-              </div>
+                    <h4 className="inventory__tablet-heading">
+                        WAREHOUSE
+                        <img src={sort} className="icon" />
+                    </h4>
+                </div>
+                <h4 className="inventory__tablet-heading-actions">ACTIONS</h4>
             </div>
+            {inventoryItems.map((item) => (
+                <li className="inventory__wrapper" key={item.id}>
+                    <div className="inventory__row--infos">
+                        <div className="inventory__column--left">
+                            <div className="inventory__column">
+                                <h4 className="inventory__heading">
+                                    ITEM NAME
+                                </h4>
 
-            <div className="inventory__column--right">
-              <div className="inventory__column">
-                <h4 className="inventory__heading">STATUS</h4>
-                <p className="inventory__text">{item.status}</p>
-              </div>
-              <div className="inventory__column">
-                <h4 className="inventory__heading">QUANTITY</h4>
-                <p className="inventory__text">{item.quantity}</p>
-              </div>
+                                <Link
+                                    className="inventory__link"
+                                    to={`/inventory/${item.id}`}
+                                    onClick={() => {
+                                        window.scroll({
+                                            top: 0,
+                                            behavior: "smooth",
+                                        });
+                                    }}
+                                >
+                                    <h3 className="inventory__name">
+                                        {item.item_name}
+                                        <img
+                                            src={iconChevron}
+                                            className="icon"
+                                        />
+                                    </h3>
+                                </Link>
+                            </div>
+                            <div className="inventory__column">
+                                <h4 className="inventory__heading">CATEGORY</h4>
+                                <p className="inventory__text">
+                                    {item.category}
+                                </p>
+                            </div>
+                        </div>
 
-              <div className="inventory__column">
-                <h4 className="inventory__heading">WAREHOUSE</h4>
-                <p className="inventory__text">{item.warehouse_name}</p>
-              </div>
-            </div>
-          </div>
+                        <div className="inventory__column--right">
+                            <div className="inventory__column">
+                                <h4 className="inventory__heading">STATUS</h4>
+                                <p className="inventory__text">{item.status}</p>
+                            </div>
+                            <div className="inventory__column">
+                                <h4 className="inventory__heading">QUANTITY</h4>
+                                <p className="inventory__text">
+                                    {item.quantity}
+                                </p>
+                            </div>
+
+                            <div className="inventory__column">
+                                <h4 className="inventory__heading">
+                                    WAREHOUSE
+                                </h4>
+                                <p className="inventory__text">
+                                    {item.warehouse_name}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
 
           <div className="inventory__row--icons">
           <button id="deleteButton" className="icon" onClick={() => openDeleteModal(inventory)}>

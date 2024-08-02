@@ -3,10 +3,14 @@ import backArrow from "../../assets/Icons/arrow_back-24px.svg";
 import editIcon from "../../assets/Icons/edit-white-24px.svg";
 import { useNavigate } from "react-router-dom";
 
-const DetailsPageHeader = ({ name, handleEdit }) => {
+const DetailsPageHeader = ({ name, navLink }) => {
     const navigate = useNavigate();
     const handleBack = () => {
         navigate(-1);
+    };
+
+    const handleEditClick = () => {
+        navigate(navLink);
     };
 
     return (
@@ -20,17 +24,13 @@ const DetailsPageHeader = ({ name, handleEdit }) => {
                 </button>
                 <h1>{name}</h1>
             </div>
-            <div
-                className={
-                    handleEdit ? "" : "detail-header__edit-wrapper--none"
-                }
-            >
+            <div className={navLink ? "" : "detail-header__edit-wrapper--none"}>
                 <button
                     className="detail-header__edit-btn"
-                    onClick={() => handleEdit()}
+                    onClick={handleEditClick}
                 >
                     <img src={editIcon} alt="Edit content." />
-                    <p className="p3 detail-header__edit-btn-word">Edit</p>
+                    <p className="detail-header__edit-btn-word">Edit</p>
                 </button>
             </div>
         </div>
