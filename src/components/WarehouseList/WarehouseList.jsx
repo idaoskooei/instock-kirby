@@ -4,10 +4,36 @@ import iconDelet from "../../assets/Icons/delete_outline-24px.svg";
 import iconEdit from "../../assets/Icons/edit-24px.svg";
 import iconChevron from "../../assets/Icons/chevron_right-24px.svg";
 import sort from "../../assets/Icons/sort-24px.svg";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useNavigate, NavLink } from "react-router-dom";
 
-const WarehouseList = ({ warehouses }) => {
+const URL = "http://localhost:8080";
+
+const WarehouseList = () => {
+    const navigate = useNavigate();
+
+    const [warehouses, setWarehouses] = useState([]);
+
+    useEffect(() => {
+        const findWarehousesAll = async () => {
+            try {
+                const response = await axios.get(`${URL}/api/warehouses`);
+                setWarehouses(response.data);
+            } catch (e) {
+                console.error("Error fetching warehouses:", e);
+            }
+        };
+        findWarehousesAll();
+        console.log(warehouses);
+    }, []);
+
+    const handleEditClick = (id) => {
+        navigate(`/warehouses/edit/${id}`);
+    };
+
     if (warehouses.length === 0) {
-        return <>No wearhouses match the search</>;
+        return <>Loading warehouses...</>;
     }
 
     return (
@@ -100,7 +126,12 @@ const WarehouseList = ({ warehouses }) => {
                             src={iconDelet}
                             alt="icon delet"
                         />
-                        <img className="icon" src={iconEdit} alt="icon edit" />
+                        <img
+                            className="icon"
+                            src={iconEdit}
+                            alt="icon edit"
+                            onClick={() => handleEditClick(warehouse.id)}
+                        />
                     </div>
                 </li>
             ))}
