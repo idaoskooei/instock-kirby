@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import InventoryList from "../../components/InventoryList/InventoryList";
 import WarehouseDetails from "../../components/WarehouseDetails/WarehouseDetails";
@@ -32,9 +32,17 @@ const WarehouseDetailsPage = () => {
         return <>Loading data...</>;
     }
 
+    //const navigate = useNavigate();
+    const handleEdit = () => {
+        //add navigation to go to edit route for warehouse
+    };
+
     return (
         <div>
-            <DetailsPageHeader name={warehouse.warehouse_name} hasEdit={true} />
+            <DetailsPageHeader
+                name={warehouse.warehouse_name}
+                handleEdit={handleEdit}
+            />
             <WarehouseDetails warehouse={warehouse} />
             <InventoryList warehouseId={id} showWarehouseName={false} />
         </div>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./InventoryForm.scss";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
@@ -22,6 +22,8 @@ const AddNewInventory = () => {
     const [quantity, setQuantity] = useState("");
     const [warehouseOptions, setWarehouseOptions] = useState([]);
     const [selectedWarehouse, setSelectedWarehouse] = useState(null);
+    const [isEditMode, setIsEditMode] = useState(false);
+    const { id } = useParams();
     const API_BASE_URL = import.meta.env.VITE_APP_BASE_URL;
     const navigate = useNavigate();
 
@@ -47,7 +49,7 @@ const AddNewInventory = () => {
     };
 
     const handleWarehouseChange = (option) => {
-        setSelectedWarehouse(option.value);
+        setSelectedWarehouse(option);
     };
 
     const handleCancelClick = (event) => {
@@ -70,12 +72,47 @@ const AddNewInventory = () => {
 
             setWarehouseOptions(warehouseOptions);
         } catch (error) {
-            console.error("Error retriving list of warehouses.", error);
+            console.error("Error retreiving list of warehouses.", error);
         }
     };
     useEffect(() => {
         getWarehouses();
     }, []);
+
+    //use effect if it in edit mode
+    const getSelectedInventoryItem = async () => {
+        try {
+            const response = await axios.get(
+                `${API_BASE_URL}/api/inventories/${id}`
+            );
+            const {
+                warehouse_id,
+                warehouse_name,
+                item_name,
+                description,
+                category,
+                status,
+                quantity,
+            } = response.data;
+            setItemName(item_name);
+            setDescription(description);
+            setSelectedCategory(category);
+            setStatus(status);
+            setQuantity(quantity);
+            setSelectedWarehouse({
+                value: warehouse_id,
+                label: warehouse_name,
+            });
+        } catch (error) {
+            console.error("Error retreiving selected Inventory Item", error);
+        }
+    };
+    useEffect(() => {
+        if (id) {
+            setIsEditMode(true);
+            getSelectedInventoryItem();
+        }
+    }, [id]);
 
     //error checking
     const [isNameValid, setIsNameValid] = useState(true);
@@ -83,6 +120,12 @@ const AddNewInventory = () => {
     const [isCategoryValid, setIsCategoryValid] = useState(true);
     const [isQuantityValid, setIsQuantityValid] = useState(true);
     const [isWarehouseValid, setIsWarehouseValid] = useState(true);
+
+    useEffect(() => {
+        if (status === "Out of Stock") {
+            setQuantity(0);
+        }
+    }, [status]);
 
     const isFormValid = () => {
         let isValid = true;
@@ -112,14 +155,11 @@ const AddNewInventory = () => {
             (status === "In Stock" && !quantity) ||
             (status === "In Stock" && quantity === 0)
         ) {
+            setQuantity("");
             setIsQuantityValid(false);
             isValid = false;
         } else {
             setIsQuantityValid(true);
-        }
-
-        if (status === "Out of Stock") {
-            setQuantity("0");
         }
 
         if (!selectedWarehouse) {
@@ -134,14 +174,34 @@ const AddNewInventory = () => {
     const submitForm = async () => {
         try {
             const newItem = {
-                warehouse_id: selectedWarehouse,
+                warehouse_id: selectedWarehouse.value,
                 item_name: itemName,
                 description: description,
                 category: selectedCategory,
                 status: status,
                 quantity: quantity,
             };
+            console.log(newItem);
             await axios.post(`${API_BASE_URL}/api/inventories`, newItem);
+        } catch (error) {
+            console.error("Error submitting form", error);
+        }
+    };
+
+    const editForm = async () => {
+        try {
+            const updateItem = {
+                warehouse_id: selectedWarehouse.value,
+                item_name: itemName,
+                description: description,
+                category: selectedCategory,
+                status: status,
+                quantity: quantity,
+            };
+            await axios.put(
+                `${API_BASE_URL}/api/inventories/${id}`,
+                updateItem
+            );
         } catch (error) {
             console.error("Error submitting form", error);
         }
@@ -151,7 +211,12 @@ const AddNewInventory = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (isFormValid()) {
-            submitForm();
+            if (isEditMode) {
+                editForm();
+            } else {
+                submitForm();
+            }
+            navigate("/inventory");
         }
     };
 
@@ -300,12 +365,10 @@ const AddNewInventory = () => {
                         <Dropdown
                             options={warehouseOptions}
                             onChange={handleWarehouseChange}
-                            value={
-                                selectedWarehouse ? selectedWarehouse.value : ""
-                            }
+                            value={selectedWarehouse ? selectedWarehouse : ""}
                             placeholder="Please select"
                             aria-labelledby="warehouse-label"
-                            id="category-dropdown"
+                            id="warehouse-dropdown"
                             className={
                                 isWarehouseValid
                                     ? "inventory-form__dropdown"
@@ -328,7 +391,7 @@ const AddNewInventory = () => {
                     form="inventory-form"
                     className="inventory-form__button inventory-form__button--add"
                 >
-                    + Add Item
+                    {isEditMode ? "Save" : "+ Add Item"}
                 </button>
             </div>
         </div>
