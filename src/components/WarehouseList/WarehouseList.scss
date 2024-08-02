@@ -125,13 +125,14 @@
     &__tablet-heading {
         display: none;
         flex: 1;
+        align-items: center;
         @include tablet{ 
             display: flex;
         }
         @include  desktop {
             display: flex;
         }
-        align-items: center;
+       
         &-main {
             display:flex;
             flex-direction: row;

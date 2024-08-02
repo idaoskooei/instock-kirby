@@ -122,6 +122,7 @@
     gap: 1rem;
 
     &__cancel {
+        cursor: pointer;
         font-family: "Titillium Web", sans-serif;
         font-weight: 600;
         height: 2.5rem;
@@ -133,6 +134,7 @@
     }
 
     &__add {
+        cursor: pointer;
         font-family: "Titillium Web", sans-serif;
         font-weight: 600;
         height: 2.5rem;

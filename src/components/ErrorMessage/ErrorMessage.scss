@@ -1,0 +1,17 @@
+@use '../../styles/partials/global';
+@use '../../styles/partials/typography';
+@use '../../styles/partials/breakpoints' as *;
+@use '../../styles/partials/variables' as vars;
+
+.errmsg {
+    display: flex;
+    padding: 1rem;
+    color: vars.$red;
+    font-weight: 400;
+    font-size: 12px;
+    &__icon{
+        width: 13.33px;
+        height: 13.33px;
+        margin: 3px;
+    }
+}
