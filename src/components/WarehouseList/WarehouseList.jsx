@@ -5,14 +5,34 @@ import iconEdit from "../../assets/Icons/edit-24px.svg";
 import iconChevron from "../../assets/Icons/chevron_right-24px.svg";
 import sort from "../../assets/Icons/sort-24px.svg";
 import { useNavigate } from "react-router-dom";
+import DeleteWarehouseModal from "../DeleteWarehouseModal/DeleteWarehouseModal";
+import{ useState } from 'react';
 
-const WarehouseList = ({ warehouses }) => {
+
+const WarehouseList = ({ warehouses, setWarehouses }) => {
     const navigate = useNavigate();
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedWarehouse, setSelectedWarehouse] = useState(null);
+
 
     const handleEditClick = (id) => {
         navigate(`/warehouses/edit/${id}`);
     };
 
+    const openDeleteModal = (warehouse) => {
+        setSelectedWarehouse(warehouse);
+        setIsModalOpen(true);
+    };
+
+    const closeDeleteModal = () => {
+        setIsModalOpen(false);
+        setSelectedWarehouse(null);
+    };
+
+    const handleDelete = (id) => {
+        setWarehouses(warehouses.filter((warehouse) => warehouse.id !== id));
+    };
+    
     if (warehouses.length === 0) {
         return <>No warehouse match the search</>;
     }
@@ -106,6 +126,7 @@ const WarehouseList = ({ warehouses }) => {
                             className="icon"
                             src={iconDelet}
                             alt="icon delet"
+                            onClick={() => openDeleteModal(warehouse)}
                         />
                         <img
                             className="icon"
@@ -116,6 +137,16 @@ const WarehouseList = ({ warehouses }) => {
                     </div>
                 </li>
             ))}
+             {selectedWarehouse && (
+                <DeleteWarehouseModal
+                    id={selectedWarehouse.id}
+                    warehouseName={selectedWarehouse.warehouse_name}
+                    setwarehouseToDisplay={setWarehouses}
+                    warehouses={warehouses}
+                    isOpen={isModalOpen}
+                    closeModal={closeDeleteModal}
+                />
+            )}
         </>
     );
 };

@@ -49,7 +49,7 @@ const WarehousePage = () => {
                 addButtonLink="/add-warehouse"
                 onSearchSubmit={handleSearchSubmit}
             />
-            <WarehouseList warehouses={warehouses} />
+            <WarehouseList warehouses={warehouses} setWarehouses={setWarehouses} />
         </>
     );
 };
