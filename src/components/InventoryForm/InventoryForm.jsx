@@ -172,7 +172,10 @@ const AddNewInventory = () => {
                                 Item Details
                             </h2>
                         </legend>
-                        <label className="inventory-form__label" htmlFor="name">
+                        <label
+                            className="p2 inventory-form__label"
+                            htmlFor="name"
+                        >
                             Item Name
                         </label>
                         <input
