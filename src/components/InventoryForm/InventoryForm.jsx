@@ -15,16 +15,19 @@ const categoryOptions = [
 ];
 
 const AddNewInventory = () => {
+    const IN_STOCK = "In Stock";
+    const OUT_OF_STOCK = "Out of Stock";
+    const API_BASE_URL = import.meta.env.VITE_APP_BASE_URL;
+
     const [itemName, setItemName] = useState("");
     const [description, setDescription] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
-    const [status, setStatus] = useState("In Stock");
+    const [status, setStatus] = useState(IN_STOCK);
     const [quantity, setQuantity] = useState("");
     const [warehouseOptions, setWarehouseOptions] = useState([]);
     const [selectedWarehouse, setSelectedWarehouse] = useState(null);
     const [isEditMode, setIsEditMode] = useState(false);
     const { id } = useParams();
-    const API_BASE_URL = import.meta.env.VITE_APP_BASE_URL;
     const navigate = useNavigate();
 
     //handle input changes
@@ -152,8 +155,8 @@ const AddNewInventory = () => {
         }
 
         if (
-            (status === "In Stock" && !quantity) ||
-            (status === "In Stock" && quantity === 0)
+            (status === IN_STOCK && !quantity) ||
+            (status === IN_STOCK && quantity === 0)
         ) {
             setQuantity("");
             setIsQuantityValid(false);
@@ -307,31 +310,43 @@ const AddNewInventory = () => {
 
                         <label className="inventory-form__label">Status</label>
                         <div className="inventory-form__radio-wrapper">
-                            <label className="inventory-form__label inventory-form__label--radio-btn">
+                            <label
+                                className={
+                                    status === IN_STOCK
+                                        ? "inventory-form__radio-btn-lbl"
+                                        : "inventory-form__radio-btn-lbl inventory-form__radio-btn-lbl--grey"
+                                }
+                            >
                                 <input
                                     type="radio"
                                     name="status"
-                                    value="In Stock"
-                                    checked={status === "In Stock"}
+                                    value={IN_STOCK}
+                                    checked={status === IN_STOCK}
                                     onChange={handleStatusChange}
                                     className="inventory-form__radio-btn "
                                 />
-                                In Stock
+                                {IN_STOCK}
                             </label>
-                            <label className="inventory-form__label inventory-form__label--radio-btn">
+                            <label
+                                className={
+                                    status === OUT_OF_STOCK
+                                        ? "inventory-form__radio-btn-lbl"
+                                        : "inventory-form__radio-btn-lbl inventory-form__radio-btn-lbl--grey"
+                                }
+                            >
                                 <input
                                     type="radio"
                                     name="status"
-                                    value="Out of Stock"
-                                    checked={status === "Out of Stock"}
+                                    value={OUT_OF_STOCK}
+                                    checked={status === OUT_OF_STOCK}
                                     onChange={handleStatusChange}
                                     className="inventory-form__radio-btn"
                                 />
-                                Out of Stock
+                                {OUT_OF_STOCK}
                             </label>
                         </div>
 
-                        {status === "In Stock" && (
+                        {status === IN_STOCK && (
                             <div>
                                 <label
                                     className="inventory-form__label"
