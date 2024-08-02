@@ -1,4 +1,6 @@
-// DeleteInventory.scss
+
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/variables" as *;
 
 .modal-overlay {
     position: fixed;

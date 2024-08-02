@@ -6,6 +6,7 @@ import iconChevron from "../../assets/Icons/chevron_right-24px.svg";
 import sort from "../../assets/Icons/sort-24px.svg";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import DeleteInventory from '../../components/DeleteInventory/DeleteInventory';
 
 // const URL = import.meta.env.VITE_APP_BASE_URL;
 const URL = "http://localhost:8080";
@@ -14,6 +15,8 @@ const InventoryList = ({ warehouseId }) => {
   const [inventoryItems, setInventoryItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedInventory, setSelectedInventory] = useState(null);
 
   useEffect(() => {
     const fetchInventory = async () => {
@@ -36,6 +39,17 @@ const InventoryList = ({ warehouseId }) => {
 
     fetchInventory();
   }, [warehouseId]);
+
+  const openDeleteModal = (inventory) => {
+    setSelectedInventory(inventory);
+    setIsModalOpen(true);
+  };
+
+  const closeDeleteModal = () => {
+    setIsModalOpen(false);
+    setSelectedInventory(null);
+  };
+
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
@@ -117,13 +131,21 @@ const InventoryList = ({ warehouseId }) => {
           </div>
 
           <div className="inventory__row--icons">
-            <img className="icon" src={iconDelete} alt="Delete" />
+          <button id="deleteButton" className="icon" onClick={() => openDeleteModal(inventory)}>
+              <img className="icon" src={iconDelete} alt='icon delete' />
+            </button>
             <Link to={`/inventory/${item.id}/edit`}>
               <img className="icon" src={iconEdit} alt="Edit" />
             </Link>
           </div>
         </li>
       ))}
+      {isModalOpen && (
+        <DeleteInventory 
+          inventory={selectedInventory}
+          onClose={closeDeleteModal}
+        />
+      )}
     </>
   );
 };
