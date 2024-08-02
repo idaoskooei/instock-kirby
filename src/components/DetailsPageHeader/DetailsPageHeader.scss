@@ -36,7 +36,7 @@
 
     &__edit-btn-word {
         display: none;
-
+        color: $white;
         @include tablet {
             display: inline;
             padding: 0 $paddingInComponents;
