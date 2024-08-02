@@ -1,0 +1,26 @@
+.details {
+    padding: 20px;
+}
+
+.details__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.details__column {
+    flex: 1;
+    min-width: 200px;
+}
+
+.details__column-left {
+    margin-bottom: 20px;
+}
+
+.details__label {
+    font-weight: bold;
+}
+
+.p2 {
+    margin: 0;
+}
