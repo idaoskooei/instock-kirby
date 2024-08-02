@@ -10,7 +10,6 @@ import WarehouseDetailsPage from "./pages/WarehouseDetailsPage/WarehouseDetailsP
 import EditWarehousePage from "./pages/EditWarehousePage/EditWarehousePage";
 import InventoryPage from "./pages/InventoryPage/InventoryPage";
 // import InventoryDetailsPage from "./pages/InventoryDetailsPage/InventoryDetailsPage";
-// import EditInventoryPage from "./pages/EditInventoryPage/EditInventoryPage";
 import InventoryFormPage from "./pages/InventoryFormPage/InventoryFormPage";
 import AddWarehousePage from "./pages/AddWarehousePage/AddWarehousePage";
 // import DeleteInventory from "./components/DeleteInventory/DeleteInventory";
@@ -49,10 +48,10 @@ function App() {
                             path="/add-warehouse"
                             element={<AddWarehousePage />}
                         />
-                        <Route
+                        {/* <Route
                             path="/inventory/:id/delete"
                             element={<DeleteInventory />}
-                        />
+                        /> */}
                     </Routes>
                 </div>
                 <Footer />
