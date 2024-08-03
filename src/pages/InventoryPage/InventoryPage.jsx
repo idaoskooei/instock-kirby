@@ -3,7 +3,6 @@ import axios from "axios";
 import React from "react";
 import InventoryList from "../../components/InventoryList/InventoryList";
 import MainPageHeader from "../../components/MainPageHeader/MainPageHeader";
-import Footer from "../../components/Footer/Footer";
 
 const InventoryPage = () => {
     const [inventoryItems, setInventoryItems] = useState([]);
@@ -35,6 +34,7 @@ const InventoryPage = () => {
         try {
             const response = await axios.get(`${URL}/api/inventories`);
             const items = response.data;
+            console.log(items);
             setInventoryItems(items);
             setLoading(false);
         } catch (e) {
@@ -58,8 +58,7 @@ const InventoryPage = () => {
                 addButtonLink="/add-inventory"
                 onSearchSubmit={handleSearchSubmit}
             />
-            <InventoryList inventoryItems={inventoryItems} />
-            <Footer />
+            <InventoryList inventoryItems={inventoryItems} setInventoryItems={setInventoryItems}/>
         </div>
     );
 };
