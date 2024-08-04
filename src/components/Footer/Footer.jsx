@@ -1,9 +1,7 @@
 import './Footer.scss';
 import { Link } from 'react-router-dom';
 
-// const URL = import.meta.env.VITE_APP_BASE_URL;
-const URL = 'http://localhost:8080';
-
+const URL = import.meta.env.VITE_APP_BASE_URL;
 
 const Footer = ({ url }) => {
     return (

@@ -7,63 +7,63 @@
 
 // mobile text styles:
 h1 {
-    @include font(1.75rem, 2.25rem, 600);
+    @include font(28px, 36px, 600);
 }
 h2 {
-    @include font(1.25rem, 1.75rem, 600);
+    @include font(20px, 28px, 600);
 }
 h3 {
-    @include font(0.8125rem, 1.25rem, 600);
+    @include font(13px, 20px, 600);
 }
 h4 {
-    @include font(0.6875rem, 1rem, 600);
+    @include font(11px, 16px, 600);
     color: $slate !important;
 }
 .p1 {
-    @include font(0.9375rem, 1.625rem, 400);
+    @include font(15px, 26px, 400);
 }
 .p2 {
-    @include font(0.8125rem, 1.25rem, 400);
+    @include font(13px, 20px, 400);
 }
 .p3 {
-    @include font(0.6875rem, 1rem, 400);
+    @include font(11px, 16px, 400);
 }
 ul,
 li,
 span,
 a,
 label {
-    @include font(0.9375rem, 1.625rem, 400);
+    @include font(15px, 26px, 400);
 }
 // desktop & tablet text styles:
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 48rem) {
     h1 {
-        @include font(2rem, 2.5rem, 600);
+        @include font(32px, 40px, 600);
     }
     h2 {
-        @include font(1.5rem, 2rem, 600);
+        @include font(24px, 32px, 600);
     }
     h3 {
-        @include font(0.875rem, 1.375rem, 600);
+        @include font(14px, 22px, 600);
     }
     h4 {
-        @include font(0.75rem, 1.125rem, 600);
+        @include font(12px, 18px, 600);
         color: $slate !important;
     }
     .p1 {
-        @include font(1rem, 1.75rem, 500);
+        @include font(16px, 28px, 500);
     }
     .p2 {
-        @include font(0.875rem, 1.375rem, 500);
+        @include font(14px, 22px, 500);
     }
     .p3 {
-        @include font(0.75rem, 1.125rem, 500);
+        @include font(12px, 18px, 500);
     }
     ul,
     li,
     span,
     a,
     label {
-        @include font(1rem, 1.75rem, 500);
+        @include font(16px, 28px, 500);
     }
 }
