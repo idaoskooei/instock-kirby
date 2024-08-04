@@ -17,6 +17,7 @@ function App() {
         <BrowserRouter>
             <section className="browser-container">
                 <Header />
+                <div className="routes-wrapper">
                 <div className="routes-container">
                     <Routes>
                         <Route
@@ -50,6 +51,7 @@ function App() {
                             element={<AddWarehousePage />}
                         />
                     </Routes>
+                </div>
                 </div>
                 <Footer />
             </section>

@@ -82,23 +82,26 @@ const InventoryList = ({ inventoryItems, setInventoryItems }) => {
               </div>
               <div className="inventory__column">
                 <h4 className="inventory__heading">CATEGORY</h4>
-                <p className="inventory__text">{item.category}</p>
+                <p className="inventory__text p2">{item.category}</p>
               </div>
             </div>
 
             <div className="inventory__column--right">
               <div className="inventory__column">
                 <h4 className="inventory__heading">STATUS</h4>
-                <p className="inventory__text">{item.status}</p>
+                <p className={`p2 ${item.quantity === 0 ? 'tag__global tag__out-of-stock' : 'tag__global tag__in-stock'}`}>
+                                    {item.quantity === 0 ? 'OUT OF STOCK' : 'IN STOCK'}
+                                </p>
+                {/* <p className="inventory__text p2">{item.status}</p> */}
               </div>
               <div className="inventory__column">
                 <h4 className="inventory__heading">QUANTITY</h4>
-                <p className="inventory__text">{item.quantity}</p>
+                <p className="inventory__text p2">{item.quantity}</p>
               </div>
 
               <div className="inventory__column">
                 <h4 className="inventory__heading">WAREHOUSE</h4>
-                <p className="inventory__text">{item.warehouse_name}</p>
+                <p className="inventory__text p2">{item.warehouse_name}</p>
               </div>
             </div>
           </div>

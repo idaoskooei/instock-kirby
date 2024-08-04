@@ -1,18 +1,25 @@
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/font" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/typography" as *;
 @use "../../styles/partials/variables" as *;
 
 .footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5rem 0rem;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: calc($screen-topMobile / 2);
+  @include tablet{
+    top: calc($screen-top / 2);
   }
-  
-  .footer-text {
+  @include desktop{
+    top: calc($screen-top / 2);
+  }
+  &-text {
     font-weight: 200;
     color: $slate;
-    display: inline-block;
-    max-width: 100%; 
-    overflow: hidden;
-    text-align: center;
   }
+}
   

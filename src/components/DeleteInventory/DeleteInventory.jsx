@@ -21,7 +21,7 @@ const DeleteInventory = ({
 
     const handleDelete = async () => {
         try {
-            await axios.delete(`${URL}/api/inventories/${selectedInventory?.id}`);
+            await axios.delete(`${URL}/api/inventories/${selectedInventory.id}`);
             console.log(selectedInventory.id)
             alert("Inventory item deleted successfully!");
             navigate(-1);
