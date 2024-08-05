@@ -3,32 +3,38 @@
 @use "../../styles/partials/typography";
 
 .header {
+    width: 100%;
     display: flex;
     flex-direction: column;
     background-color: vars.$graphite;
-    padding: 1.5rem 0 0 0;
+    padding: 0 clamp(1rem, 0.284rem + 3.579vw, 2rem);
     gap: 1.5rem;
-    height: 11rem;
+    height: clamp(10.938rem, 9.821rem + 5.58vw, 12.5rem);
 
     @include tablet {
         flex-direction: row;
-        align-items: flex-start;
-        padding: 1.5rem 2.25rem 0 2.25rem;
-        height: 12rem;
+        padding: 0 clamp(2rem, -2.313rem + 8.984vw, 4.875rem);
+        height: 12.5rem;
     }
 
     @include desktop {
-        padding: 2.25rem 9rem 0 9rem;
-        height: 14rem;
-        padding: 0;
+        padding: 0 4.876rem;
         justify-content: center;
     }
 
     &__wrapper {
+        padding: 6px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content:space-evenly;
+        align-content: center;
+        // height: 6.875rem;
+        height: clamp(6.875rem, 6.071rem + 4.018vw, 8rem);
+        
         @include tablet {
-            margin: 0 clamp(2rem, -2.313rem + 8.984vw, 4.875rem);
-            margin-right: 1rem;
-            display: flex;
+            padding:0;
+            height: 6.25rem;
+            flex-direction: row;
             justify-content: space-between;
             align-content: center;
             width: 100%;
@@ -36,9 +42,6 @@
 
         @include desktop {
             max-width: 1280px;
-            margin: 0 1rem;
-            display: flex;
-            align-items: flex-end;
         }
     }
 }
@@ -46,24 +49,21 @@
 .logo {
     display: flex;
     justify-content: center;
+    align-content: center;
 
     @include tablet {
-        justify-content: center;
+        flex-direction: column;
     }
-
-    @include desktop {
-        justify-content: flex-start;
+    &__link {
+        display: flex;
+    justify-content: center;
+    align-content: center;
     }
-
     &__img {
-        width: 9rem;
-
+        height: clamp(1.5rem, 1.321rem + 0.893vw, 1.75rem);
+        width: auto;
         @include tablet {
-            margin: 0 auto 0 0;
-            padding-top: 0.25rem;
-        }
-        @include desktop {
-            margin-top: 2.4rem;
+            height: 1.75rem;
         }
     }
 }
@@ -73,27 +73,11 @@
     justify-content: center;
     align-items: center;
     gap: 0.25rem;
-    margin: 0 clamp(1rem, 0.284rem + 3.579vw, 2rem);
-    padding-top: 0.5rem;
-
-    @include tablet {
-        padding: 1;
-        padding-top: 0;
-        margin: 0;
-    }
-
-    @include desktop {
-        display: flex;
-        justify-content: flex-end;
-        margin: 0 0 0 auto;
-        padding: 1;
-    }
 
     &__item {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 2rem;
         width: 100%;
 
         font-family: "Titillium Web", sans-serif;
@@ -107,7 +91,8 @@
         border-radius: 5rem;
 
         &:hover {
-            background-color: lighten(vars.$graphite, 10%);
+            text-decoration: underline;
+            color: vars.$white;
         }
 
         @include tablet {
@@ -121,8 +106,4 @@
     border: 1px solid vars.$black;
     color: vars.$white;
     height: 2rem;
-
-    @include tablet {
-        width: 7.5rem;
-    }
 }
