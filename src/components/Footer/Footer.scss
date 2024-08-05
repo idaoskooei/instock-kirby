@@ -18,9 +18,12 @@
     top: calc($screen-top / 2);
   }
   &-text {
+    font-size: .6875rem;
     font-weight: 200;
     color: $slate;
-    
+    @include tablet{
+     font-size: .75rem;
+    }
   }
 }
   
