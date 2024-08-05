@@ -1,8 +1,8 @@
 import "./AddWarehouseForm.scss";
 import arrowBack from "../../assets/Icons/arrow_back-24px.svg";
 import axios from "axios";
-import { useNavigate, NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import { useNavigate, NavLink } from "react-router-dom";
+import { useState } from "react";
 import ErrorMsg from "../ErrorMessage/ErrorMessage";
 
 const AddWarehouseForm = () => {
@@ -30,7 +30,6 @@ const AddWarehouseForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-
         setNameValid(!!warehouseName);
         setAddressValid(!!address);
         setCityValid(!!city);
@@ -40,24 +39,35 @@ const AddWarehouseForm = () => {
         setPhoneValid(!!phone);
         setEmailValid(!!email);
 
-        if (!warehouseName || !address || !city || !country || !contactName || !position || !phone || !email) {
+        if (
+            !warehouseName ||
+            !address ||
+            !city ||
+            !country ||
+            !contactName ||
+            !position ||
+            !phone ||
+            !email
+        ) {
             return false;
         } else {
             try {
-
-        const newWarehouse = {
-            warehouse_name: warehouseName,
-            address: address,
-            city:city,
-            contact_name:contactName ,
-             contact_position:position,
-            contact_phone:phone,
-             contact_email:email,
-             country:country
-        };
-                await axios.post('http://localhost:8080/api/warehouses', newWarehouse);
+                const newWarehouse = {
+                    warehouse_name: warehouseName,
+                    address: address,
+                    city: city,
+                    contact_name: contactName,
+                    contact_position: position,
+                    contact_phone: phone,
+                    contact_email: email,
+                    country: country,
+                };
+                await axios.post(
+                    "http://localhost:8080/api/warehouses",
+                    newWarehouse
+                );
                 console.log(newWarehouse);
-                navigate('/');
+                navigate("/");
             } catch (error) {
                 console.log(error);
                 setUpdatedMessage("Failed to add warehouse. Please try again.");
@@ -68,7 +78,7 @@ const AddWarehouseForm = () => {
 
     const handleCancelClick = (event) => {
         event.preventDefault();
-        navigate("/");
+        navigate(-1);
     };
 
     return (
@@ -76,48 +86,132 @@ const AddWarehouseForm = () => {
             <div className="header-container">
                 <NavLink className="link" to={`/`}>
                     <div className="title-container">
-                        <img className="title-container__arrow" src={arrowBack} alt="Arrow back" />
-                        <h1 className="title-container__title">Add New Warehouse</h1>
+                        <img
+                            className="title-container__arrow"
+                            src={arrowBack}
+                            alt="Arrow back"
+                        />
+                        <h1 className="title-container__title">
+                            Add New Warehouse
+                        </h1>
                     </div>
                 </NavLink>
             </div>
             <div className="warehouse-contact-details">
                 <div className="details-container">
-                    <h2 className="details-container__header">Warehouse Details</h2>
-                    <h3 className="details-container__subheader">Warehouse Name</h3>
-                    <input className="details-container__input" type="text" name="warehouseName" value={warehouseName} onChange={(e) => setWarehouseName(e.target.value)} placeholder="Warehouse Name" />
+                    <h2 className="details-container__header">
+                        Warehouse Details
+                    </h2>
+                    <h3 className="details-container__subheader">
+                        Warehouse Name
+                    </h3>
+                    <input
+                        className="details-container__input"
+                        type="text"
+                        name="warehouseName"
+                        value={warehouseName}
+                        onChange={(e) => setWarehouseName(e.target.value)}
+                        placeholder="Warehouse Name"
+                    />
                     {!nameValid && <ErrorMsg />}
-                    <h3 className="details-container__subheader">Street Address</h3>
-                    <input className="details-container__input" type="text" name="address" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Street Address" />
+                    <h3 className="details-container__subheader">
+                        Street Address
+                    </h3>
+                    <input
+                        className="details-container__input"
+                        type="text"
+                        name="address"
+                        value={address}
+                        onChange={(e) => setAddress(e.target.value)}
+                        placeholder="Street Address"
+                    />
                     {!addressValid && <ErrorMsg />}
                     <h3 className="details-container__subheader">City</h3>
-                    <input className="details-container__input" type="text" name="city" value={city} onChange={(e) => setCity(e.target.value)} placeholder="City" />
+                    <input
+                        className="details-container__input"
+                        type="text"
+                        name="city"
+                        value={city}
+                        onChange={(e) => setCity(e.target.value)}
+                        placeholder="City"
+                    />
                     {!cityValid && <ErrorMsg />}
                     <h3 className="details-container__subheader">Country</h3>
-                    <input className="details-container__input" type="text" name="country" value={country} onChange={(e) => setCountry(e.target.value)} placeholder="Country" />
+                    <input
+                        className="details-container__input"
+                        type="text"
+                        name="country"
+                        value={country}
+                        onChange={(e) => setCountry(e.target.value)}
+                        placeholder="Country"
+                    />
                     {!countryValid && <ErrorMsg />}
                 </div>
                 <div className="details-container--borderless">
-                    <h2 className="details-container__header">Contact Details</h2>
-                    <h3 className="details-container__subheader">Contact Name</h3>
-                    <input className="details-container__input" type="text" name="contactName" value={contactName} onChange={(e) => setContactName(e.target.value)} placeholder="Contact Name" />
+                    <h2 className="details-container__header">
+                        Contact Details
+                    </h2>
+                    <h3 className="details-container__subheader">
+                        Contact Name
+                    </h3>
+                    <input
+                        className="details-container__input"
+                        type="text"
+                        name="contactName"
+                        value={contactName}
+                        onChange={(e) => setContactName(e.target.value)}
+                        placeholder="Contact Name"
+                    />
                     {!contactNameValid && <ErrorMsg />}
                     <h3 className="details-container__subheader">Position</h3>
-                    <input className="details-container__input" type="text" name="position" value={position} onChange={(e) => setPosition(e.target.value)} placeholder="Position" />
+                    <input
+                        className="details-container__input"
+                        type="text"
+                        name="position"
+                        value={position}
+                        onChange={(e) => setPosition(e.target.value)}
+                        placeholder="Position"
+                    />
                     {!positionValid && <ErrorMsg />}
-                    <h3 className="details-container__subheader">Phone Number</h3>
-                    <input className="details-container__input" type="text" name="phone" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone Number" />
+                    <h3 className="details-container__subheader">
+                        Phone Number
+                    </h3>
+                    <input
+                        className="details-container__input"
+                        type="text"
+                        name="phone"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        placeholder="Phone Number"
+                    />
                     {!phoneValid && <ErrorMsg />}
                     <h3 className="details-container__subheader">Email</h3>
-                    <input className="details-container__input" type="text" name="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
+                    <input
+                        className="details-container__input"
+                        type="text"
+                        name="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Email"
+                    />
                     {!emailValid && <ErrorMsg />}
                 </div>
             </div>
             <div className="buttons-container">
                 <p className="inventory-edit-form__message">{updatedMessage}</p>
                 <div className="buttons-container__row">
-                    <button onClick={handleCancelClick} className="buttons-container__cancel button">Cancel</button>
-                    <button type="submit" className="buttons-container__add button">+ Add Warehouse</button>
+                    <button
+                        onClick={handleCancelClick}
+                        className="buttons-container__cancel button"
+                    >
+                        Cancel
+                    </button>
+                    <button
+                        type="submit"
+                        className="buttons-container__add button"
+                    >
+                        + Add Warehouse
+                    </button>
                 </div>
             </div>
         </form>
