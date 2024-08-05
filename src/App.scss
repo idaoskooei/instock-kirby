@@ -1,0 +1,46 @@
+@use "./styles/partials/breakpoints" as *;
+@use "./styles/partials/font" as *;
+@use "./styles/partials/global" as *;
+@use "./styles/partials/typography" as *;
+@use "./styles/partials/variables" as *;
+
+.browser-container{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    box-sizing: border-box;
+    min-height: 98vh;
+}
+header{
+    width: 100%;
+}
+
+.routes {
+    &-wrapper {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    &-container{
+        width:  100%;
+        max-width: $max-screen-width;
+        background-color: $white;
+        position: relative;
+        
+        box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+        border-radius: $border-radious;
+        // overflow: hidden;
+
+        margin: 0 clamp(1rem, 0.284rem + 3.579vw, 2rem);
+        top: $screen-topMobile;
+        @include tablet{
+            margin: 0 clamp(2rem, -2.313rem + 8.984vw, 4.875rem);
+            top: $screen-top;
+        }
+
+        @include desktop{
+            margin: 0 4.876rem;
+            top: $screen-top;
+        }
+    }
+}

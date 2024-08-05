@@ -1,0 +1,111 @@
+@use "./variables" as *;
+@use "./breakpoints" as *;
+html {
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+    border: 0;
+    outline-width: 0;
+    &:focus {
+        outline: none;
+    }
+}
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+    font-family: inherit;
+}
+body {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    font-family: "Titillium Web", "Open Sans", sans-serif;
+    color: $black;
+    background-color: $grey;
+    pointer-events: initial;
+}
+h1,
+h2,
+h3,
+h4,
+.p1,
+.p2,
+.p3,
+ul,
+li,
+span,
+a {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    color: $black;
+    text-align: left;
+}
+.button {
+    font-weight: 400;
+    line-height: .75rem;
+    width: 100%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    border-radius: 1.25rem;
+    width: 100%;
+    font-size: 13px;
+    cursor: pointer;
+    padding: 0 1rem;
+    height: 2.25rem;
+    @include tablet {
+        height: 2.375rem;
+        width: auto;
+        justify-content:flex-end;
+        font-size: 14px;
+    }
+    @include desktop {
+        height: 2.375rem;
+        width: auto;
+        justify-content:flex-end;
+        font-size: 14px;
+    }
+}
+textarea {
+    resize: none;
+}
+.tag {
+    &__global {
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        overflow: hidden;
+        white-space: nowrap;
+        height: 1.5rem;
+        border-radius: 2rem;
+        font-weight: 600;
+        font-size: .6875rem;
+        padding: 0 .5rem;
+        @include tablet {
+            height: 1.625rem;
+        }
+        @include desktop {
+            height: 1.625rem;
+        }
+    }
+    &__in-stock {
+        color: $green;
+        background-color: rgba($green, 0.07); 
+    }
+    &__out-of-stock{
+        color: $red;
+        background-color: rgba($red, 0.07);
+    }
+};
+.icon {
+    padding: 0;
+    &:hover {
+        cursor: pointer;
+    }
+}

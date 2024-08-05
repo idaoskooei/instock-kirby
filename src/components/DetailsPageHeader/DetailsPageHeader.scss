@@ -1,0 +1,74 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/breakpoints" as *;
+
+.detail-header {
+    background-color: $white;
+    display: flex;
+    justify-content: space-between;
+
+    align-items: center;
+    padding: $headingPadding $paddingMobile $paddingMobile * 1.5 $paddingMobile;
+    border-bottom: $divider;
+    border-radius: $border-radious $border-radious 0 0;
+
+    @include tablet {
+        padding-left: $paddingTablet;
+        padding-right: $paddingTablet;
+    }
+
+    &__wrapper {
+        display: flex;
+    }
+
+    &__back-btn {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        margin: 0;
+        padding: 0 0.25rem 0 0;
+        background-color: transparent;
+        cursor: pointer;
+        & > img {
+            height: 36px;
+            width: 24px;
+            @include tablet {
+                height: 40px;
+                width: 24px;
+            }
+        }
+    }
+
+    &__edit-wrapper--none {
+        display: none;
+    }
+
+    &__edit-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $indigo;
+        border-radius: $button-radius;
+        color: $white;
+        padding: 0.5rem;
+        cursor: pointer;
+        height: 36px;
+        &:hover {
+            background-color: $graphite;
+        }
+        & > img {
+            width: 20px;
+        }
+        @include tablet {
+            padding: 0 12px;
+        }
+    }
+
+    &__edit-btn-word {
+        display: none;
+        color: $white;
+        @include tablet {
+            display: inline;
+            padding: 0 $paddingInComponents;
+        }
+    }
+}

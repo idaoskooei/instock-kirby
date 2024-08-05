@@ -1,0 +1,50 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/breakpoints" as *;
+.details {
+    border-radius: 0 0 $border-radious $border-radious;
+    padding: $paddingMobile;
+        @include tablet {
+            padding: $paddingTablet;
+        }
+        @include desktop {
+            padding: $paddingTablet;
+        }
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: .3rem;
+        @include tablet {
+            flex-direction: row;
+            gap: 1rem;
+        }
+        @include desktop {
+            flex-direction: row;
+            gap: 1rem;
+        }
+    }
+    &__column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        &--divider {
+            background-color: $cloud;
+            width: .05rem;
+            margin: 0.1rem .5rem;
+        }
+    }
+    &__row {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+    }
+    &__pair {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: .5rem;
+    }
+    &__label {
+        line-height: 1.5rem;
+    }
+}

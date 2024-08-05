@@ -1,0 +1,251 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/global" as *;
+
+.inventory {
+  width: 100%;
+  &__wrapper {
+    border-top: $divider;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    padding: $paddingMobile * 0.5 $paddingMobile;
+    &:hover {
+      background-color: rgba($indigo, 0.07);
+    }
+
+    @include tablet {
+      padding: $paddingTablet * 0.5 $paddingTabletOutFrame;
+      flex-direction: row;
+      justify-content:center;
+      align-items: center;
+      &:first-of-type{
+        border-top: none;
+      }
+    }
+
+    @include desktop {
+      padding: $paddingTablet * 0.5 $paddingTabletOutFrame;
+      flex-direction: row;
+      justify-content:center;
+      align-items: center;
+      &:first-of-type{
+        border-top: none;
+      }
+    }
+  }
+
+  &__row {
+    &--infos {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      @include tablet {
+        align-items:center;
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+      }
+      @include desktop {
+        align-items:center;
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+      }
+    }
+    &--icons {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      @include tablet {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        width: 4rem;
+        gap: 1.25rem;
+      }
+
+      @include desktop {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        width: 4rem;
+        gap: 1.25rem;
+      }
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: $paddingMobile;
+    flex: 1;
+    @include tablet {
+        padding-bottom: 0;
+      }
+
+    @include desktop {
+        padding-bottom: 0;
+    }
+
+    &--left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      // flex: 1;
+      width: 50%;
+      padding-right: $paddingMobile * 0.125;
+
+      @include tablet {
+        align-items:center;
+        flex-direction: row;
+        flex: 1;
+        padding-bottom: 0;
+        padding-right: $paddingMobile * 1;
+      }
+
+      @include desktop {
+        align-items:center;
+        flex: 1;
+        flex-direction: row;
+        padding-bottom: 0;
+        padding-right: $paddingMobile * 2;
+      }
+    }
+
+    &--right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      // flex: 1;
+      width: 50%;
+      padding-left: $paddingMobile * 0.125;
+
+      @include tablet {
+        align-items:center;
+        flex-direction: row;
+        flex: 1.2;
+        padding-left: $paddingMobile * 0;
+      }
+
+      @include desktop {
+        align-items:center;
+        flex-direction: row;
+        flex: 1.2;
+        padding-left: $paddingMobile * 0;
+      }
+    }
+  }
+
+  &__name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: $indigo;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__heading {
+    display: flex;
+
+    @include tablet {
+      display: none;
+    }
+
+    @include desktop {
+      display: none;
+    }
+
+    &__row {
+      display: none;
+
+      @include tablet {
+        display: flex;
+      }
+
+      @include desktop {
+        display: flex;
+      }
+    }
+  }
+
+  &__tablet-heading {
+    display: none;
+    flex: 1;
+    align-items: center;
+
+    @include tablet {
+      display: flex;
+    }
+
+    @include desktop {
+      display: flex;
+    }
+
+    &-main {
+      display: flex;
+      flex-direction: row;
+      padding: 0 $paddingMobile;
+      padding-right: $paddingMobile * 0.5;
+      @include tablet {
+        display: flex;
+        padding: $paddingTablet * 0.5 $paddingTabletOutFrame;
+        background-color: $grey;
+      }
+
+      @include desktop {
+        display: flex;
+        padding: $paddingTablet * 0.5 $paddingTabletOutFrame;
+        background-color: $grey;
+      }
+    }
+
+    &-left {
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+      padding-right: $paddingMobile * .5;
+      @include tablet {
+        padding-right: $paddingMobile * 1;
+      }
+
+      @include desktop {
+        padding-right: $paddingMobile * 2;
+      }
+    }
+
+    &-right {
+      display: flex;
+      flex-direction: row;
+      flex: 1.2;
+    }
+
+    &-actions {
+      display: none;
+      justify-content: flex-end;
+      align-items: center;
+      width: 4rem;
+      flex-direction: row;
+      padding: 0 0 0 $paddingMobile;
+
+      @include tablet {
+        display: flex;
+      }
+
+      @include desktop {
+        display: flex;
+      }
+    }
+  }
+}

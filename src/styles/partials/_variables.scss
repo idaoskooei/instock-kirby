@@ -1,0 +1,60 @@
+//------------------------colorPalette:
+
+//Primary colors
+$black: #13182c; //Instock-Black:  Global text color
+$indigo: #2e66e5; //Instock-Indigo:  Interactive elements
+$white: #ffffff; //White:  Global white color
+
+// secondary colors
+$slate: #5c667e; //Slate:  Table column headers & placeholder text
+$cloud: #bdc5d5; //Cloud:  Outlines, dividers, borders, table sorting icon
+
+//background colors
+$graphite: #232940; //Graphite:  Top navigation header background,CTA button hover state background
+$grey: #f7f8f9; //Light-Grey:  Page background,table column header background, CTA background
+
+//supporting colors
+$green: #158463; //Green:  “In stock” label
+$red: #c94515; //Red:  “Out of stock” label, error states & delete icon
+
+//------------------------mixin for-size:
+$tablet: 768px;
+$desktop: 1280px;
+
+//breakpoints--------:
+
+$breakpoint-tablet-min: 768px;
+$breakpoint-tablet-max: 1279px;
+$breakpoint-desktop: 1280px;
+
+//padding
+$paddingMobile: 1rem;
+$paddingTablet: 1.5rem;
+$paddingTabletOutFrame: 2.25rem;
+$paddingInComponents: 0.25rem;
+$headingPadding: 2.25rem;
+
+//button
+$button-radius: 1.25rem;
+$mobile-button-height: 2.25rem;
+$tablet-button-height: 2.375rem;
+$button-LR-padding: 1rem;
+
+//form variables
+$mobile-form-height: 2.25rem;
+$tablet-form-height: 2.375rem;
+$form-padding: 1rem;
+$form-input-radius: 1.25rem;
+
+//divider
+$divider: 1px solid $cloud;
+
+//screen top
+$max-screen-width: 1280px;
+$screen-topMobile: -4rem;
+$screen-top: -6.25rem;
+
+//
+$shadow: 0 4px 8px rgba($graphite, 0.3);
+$border-radious: .4rem;
+$button-radius: 2rem;

@@ -1,0 +1,26 @@
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/font" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.footer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: calc($screen-topMobile / 2);
+  @include tablet{
+    top: calc($screen-top / 2);
+  }
+  @include desktop{
+    top: calc($screen-top / 2);
+  }
+  &-text {
+    font-weight: 200;
+    color: $slate;
+    
+  }
+}
+  
