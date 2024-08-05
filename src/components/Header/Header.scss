@@ -2,102 +2,126 @@
 @use "../../styles/partials/variables" as vars;
 @use "../../styles/partials/typography";
 
-
 .header {
-    display: flex;
-    flex-direction: column;
-    background-color: vars.$graphite;
-    padding: 1.5rem 0 0 0;
-    gap: 1.5rem;
-    height: 15rem;
+  display: flex;
+  flex-direction: column;
+  background-color: vars.$graphite;
+  padding: 1.5rem 0 0 0;
+  gap: 1.5rem;
+  height: 11rem;
 
+  @include tablet {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 1.5rem 2.25rem 0 2.25rem;
+    height: 12rem;
+  }
+
+  @include desktop {
+    padding: 2.25rem 9rem 0 9rem;
+    height: 14rem;
+    padding: 0;
+  }
+
+  &__wrapper {
     @include tablet {
-        flex-direction: row;
-        align-items: flex-start;
-        padding: 2.25rem 2.25rem 0 2.25rem;
+      margin: 0 clamp(2rem, -2.313rem + 8.984vw, 4.875rem);
+      margin-right: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-content: center;
+      width: 100%;
     }
 
     @include desktop {
-        padding: 2.25rem 9rem 0 9rem;
+      margin: 0 14rem;
+      display: flex;
+      align-items: flex-end;
     }
+  }
 }
 
 .logo {
-    display: flex;
+  display: flex;
+  justify-content: center;
+
+  @include tablet {
     justify-content: center;
+  }
+
+  @include desktop {
+    justify-content: flex-start;
+  }
+
+  &__img {
+    width: 9rem;
 
     @include tablet {
-        justify-content: flex-start;
+      width: 7rem;
+      margin: 0 auto 0 0;
+      padding-top: 0.25rem;
     }
-
     @include desktop {
-        justify-content: flex-start;
+      margin-top: 2.4rem;
     }
-
-    &__img {
-        width: 9rem;
-
-        @include tablet {
-            width: 7rem;
-            margin: 0 auto 0 0;
-            padding-top: 0.25rem;
-        }
-        @include desktop {
-            margin-top: 2.4rem;
-        }
-    }
+  }
 }
 
 .nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 clamp(1rem, 0.284rem + 3.579vw, 2rem);
+  padding-top: 0.5rem;
+  // padding: 0rem 1rem;
+
+  @include tablet {
+    padding: 1;
+    padding-top: 0;
+    margin: 0;
+  }
+
+  @include desktop {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 0 0 auto;
+    padding: 1;
+  }
+
+  &__item {
     display: flex;
     justify-content: center;
-    gap: 3rem;
-    // padding: 0rem 1rem;
+    align-items: center;
+    height: 2rem;
+    width: 100%;
+
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 600;
+    font-size: 0.8125rem;
+    text-decoration: none;
+
+    background-color: vars.$graphite;
+    border: 1px solid vars.$graphite;
+    color: vars.$cloud;
+    border-radius: 5rem;
+
+    &:hover {
+      background-color: lighten(vars.$graphite, 10%);
+    }
 
     @include tablet {
-        margin: 0 0 0 auto;
-        padding: 1;
+      width: 7.5rem;
     }
-
-    @include desktop {
-        justify-content: flex-start;
-        margin: 0 0 0 auto;
-        padding: 1;
-    }
-
-    &__item {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 2.75rem;
-        // width:30%;
-
-        font-family: "Titillium Web", sans-serif;
-        font-weight: 600;
-        font-size: 0.8125rem;
-        text-decoration: none;
-
-        background-color: vars.$graphite;
-        border: 1px solid vars.$graphite;
-        color: vars.$cloud;
-        border-radius: 5rem;
-
-        &:hover {
-            background-color: lighten(vars.$graphite, 10%);
-        }
-
-        @include tablet {
-            width: 4.5rem;
-        }
-    }
+  }
 }
 
 .active {
-    background-color: vars.$black;
-    border: 1px solid vars.$black;
-    color: vars.$white;
+  background-color: vars.$black;
+  border: 1px solid vars.$black;
+  color: vars.$white;
+  height: 2rem;
 
-    @include tablet {
-        width: 7.5rem;
-    }
+  @include tablet {
+    width: 7.5rem;
+  }
 }

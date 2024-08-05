@@ -5,20 +5,24 @@ import "./Header.scss";
 
 const Header = () => {
   return (
-      <header className="header">
-          
-          <div className='logo'>
-              <Link to={'/'}>
-                  <img className="logo__img" src={Logo} alt="instock-logo"/>
-              </Link>
-          </div>
+    <header className="header">
+      <div className="header__wrapper">
+        <div className="logo">
+          <Link to={"/"}>
+            <img className="logo__img" src={Logo} alt="instock-logo" />
+          </Link>
+        </div>
 
-          <div className='nav'>
-              <NavLink className='nav__item' to={`/`}>Warehouse</NavLink>
-              <NavLink className='nav__item' to={`/inventory`}>Inventory</NavLink>
-          </div>
-          
-      </header>
+        <div className="nav">
+          <NavLink className="nav__item" to={`/warehouses`}>
+            Warehouses
+          </NavLink>
+          <NavLink className="nav__item" to={`/inventory`}>
+            Inventory
+          </NavLink>
+        </div>
+      </div>
+    </header>
   );
 };
 
