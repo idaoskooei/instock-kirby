@@ -18,6 +18,7 @@ html {
     font-family: inherit;
 }
 body {
+    height: 100%;
     width: 100%;
     position: relative;
     margin: 0;
@@ -25,6 +26,7 @@ body {
     font-family: "Titillium Web", "Open Sans", sans-serif;
     color: $black;
     background-color: $grey;
+    pointer-events: initial;
 }
 h1,
 h2,
@@ -44,21 +46,42 @@ a {
     color: $black;
     text-align: left;
 }
-button {
-    background: none;
-    border: none;
-    color: inherit;
+.button {
+    font-weight: 400;
+    line-height: .75rem;
+    width: 100%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    border-radius: 1.25rem;
+    width: 100%;
+    font-size: 13px;
     cursor: pointer;
+    padding: 0 1rem;
+    height: 2.25rem;
+    @include tablet {
+        height: 2.375rem;
+        width: auto;
+        justify-content:flex-end;
+        font-size: 14px;
+    }
+    @include desktop {
+        height: 2.375rem;
+        width: auto;
+        justify-content:flex-end;
+        font-size: 14px;
+    }
 }
 textarea {
     resize: none;
 }
-
 .tag {
     &__global {
         display: flex;
         align-items: center;
         width: fit-content;
+        overflow: hidden;
+        white-space: nowrap;
         height: 1.5rem;
         border-radius: 2rem;
         font-weight: 600;
@@ -84,11 +107,5 @@ textarea {
     padding: 0;
     &:hover {
         cursor: pointer;
-    }
-    @include tablet {
-        padding: 0 .5rem;
-    }
-    @include desktop {
-        padding: 0 .5rem;
     }
 }

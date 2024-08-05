@@ -54,7 +54,6 @@ const AddWarehouseForm = () => {
             contact_phone:phone,
              contact_email:email,
              country:country
-            
         };
                 await axios.post('http://localhost:8080/api/warehouses', newWarehouse);
                 console.log(newWarehouse);
@@ -62,6 +61,7 @@ const AddWarehouseForm = () => {
             } catch (error) {
                 console.log(error);
                 setUpdatedMessage("Failed to add warehouse. Please try again.");
+                alert("Failed to add warehouse. Please try again.");
             }
         }
     };
@@ -114,9 +114,11 @@ const AddWarehouseForm = () => {
                 </div>
             </div>
             <div className="buttons-container">
-                <button onClick={handleCancelClick} className="buttons-container__cancel">Cancel</button>
-                <button type="submit" className="buttons-container__add">+ Add Warehouse</button>
                 <p className="inventory-edit-form__message">{updatedMessage}</p>
+                <div className="buttons-container__row">
+                    <button onClick={handleCancelClick} className="buttons-container__cancel button">Cancel</button>
+                    <button type="submit" className="buttons-container__add button">+ Add Warehouse</button>
+                </div>
             </div>
         </form>
     );

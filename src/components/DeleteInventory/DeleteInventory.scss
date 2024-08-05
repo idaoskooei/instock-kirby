@@ -82,30 +82,24 @@
     }
   }
 
-  &__button {
-    font-family: "Titillium Web", sans-serif;
-    font-weight: 400;
-    border-radius: 20px;
-    padding: 0.5rem;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
-
-    @include tablet {
-      width: auto;
-      padding: 0.5rem 1rem;
-    }
-
+&__button {
     &--cancel {
       color: $slate;
       background-color: $white;
       border: 1px solid $cloud;
+      &:hover {
+        border: 1px solid $indigo;
+        color: $indigo;
+      }
     }
-
     &--delete {
       color: $white;
       background-color: $red;
+      border: 1px solid $red;
+      &:hover {
+        background-color: $graphite;
+        border: 1px solid $graphite;
+      }
     }
   }
 }

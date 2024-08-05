@@ -25,9 +25,9 @@ const InventoryDetailsPage = () => {
         fetchInventory();
     }, [id]);
 
-    const handleEdit = () => {
-        navigate(`/inventory/${id}/edit`);
-    };
+    // const handleEdit = () => {
+        // navigate(`/inventory/${id}/edit`);
+    // };
 
     if (!inventory) {
         return <p>Loading...</p>;
@@ -37,7 +37,8 @@ const InventoryDetailsPage = () => {
         <div>
             <DetailsPageHeader
                 name={inventory.item_name} 
-                handleEdit={handleEdit}
+                navLink={`/inventory/${id}/edit`}
+                // handleEdit={handleEdit}
             />
             <InventoryDetails inventory={inventory} />
         </div>

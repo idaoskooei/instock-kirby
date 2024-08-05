@@ -120,6 +120,10 @@
         border: 1px solid vars.$cloud;
         border-radius: 1.5rem;
         margin-left: 2rem;
+        &:hover {
+            border: 1px solid vars.$indigo;
+            color: vars.$indigo;
+        }
 
         @include tablet {
             width: 4.5rem;
@@ -137,6 +141,10 @@
         border: 1px solid vars.$cloud;
         border-radius: 1.5rem;
         margin-right: 2rem;
+        &:hover {
+            background-color: vars.$graphite;
+            border: 1px solid vars.$graphite;
+        }
 
         @include tablet {
             width: 3.9rem;

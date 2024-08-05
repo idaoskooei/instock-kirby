@@ -6,19 +6,16 @@
     color: $black;
     display: flex;
     flex-direction: column;
-    border-bottom: $divider;
 
     @include tablet {
         border: none;
     }
 
     &__contact-wrapper {
-        margin: $paddingMobile;
         display: flex;
         flex-direction: column;
 
         @include tablet {
-            margin: $paddingTablet;
             flex-direction: row;
             justify-content: space-between;
         }
@@ -46,16 +43,18 @@
 
     &__contact-info {
         display: flex;
-        gap: $paddingTablet;
+        gap: $paddingMobile;
+        width: 100%;
 
         @include tablet {
             padding-left: $paddingTablet;
             border-left: $divider;
-            width: 55%;
+            width: 60%;
         }
 
         @include desktop {
             padding-left: 3rem;
+            width: 55%;
             gap: 6rem;
         }
     }

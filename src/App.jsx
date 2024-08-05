@@ -18,43 +18,43 @@ function App() {
             <section className="browser-container">
                 <Header />
                 <div className="routes-wrapper">
-                <div className="routes-container">
-                    <Routes>
-                        <Route
-                            path="/"
-                            element={<Navigate to="/warehouses" />}
-                        />
-                        <Route path="/warehouses" element={<WarehousePage />} />
-                        <Route
-                            path="/warehouses/:id"
-                            element={<WarehouseDetailsPage />}
-                        />
-                        <Route
-                            path="/warehouses/edit/:id"
-                            element={<EditWarehousePage />}
-                        />
-                        <Route path="/inventory" element={<InventoryPage />} />
-                        <Route
-                            path="/inventory/:id"
-                            element={<InventoryDetailsPage />}
-                        />
-                        <Route
-                            path="/inventory/:id/edit"
-                            element={<InventoryFormPage />}
-                        />
-                        <Route
-                            path="/add-inventory"
-                            element={<InventoryFormPage />}
-                        />
-                        <Route
-                            path="/add-warehouse"
-                            element={<AddWarehousePage />}
-                        />
-                    </Routes>
+                    <div className="routes-container">
+                        <Routes>
+                            <Route
+                                path="/"
+                                element={<Navigate to="/warehouses" />}
+                            />
+                            <Route path="/warehouses" element={<WarehousePage />} />
+                            <Route
+                                path="/warehouses/:id"
+                                element={<WarehouseDetailsPage />}
+                            />
+                            <Route
+                                path="/warehouses/edit/:id"
+                                element={<EditWarehousePage />}
+                            />
+                            <Route path="/inventory" element={<InventoryPage />} />
+                            <Route
+                                path="/inventory/:id"
+                                element={<InventoryDetailsPage />}
+                            />
+                            <Route
+                                path="/inventory/:id/edit"
+                                element={<InventoryFormPage />}
+                            />
+                            <Route
+                                path="/add-inventory"
+                                element={<InventoryFormPage />}
+                            />
+                            <Route
+                                path="/add-warehouse"
+                                element={<AddWarehousePage />}
+                            />
+                        </Routes>
+                    </div>
                 </div>
-                </div>
-                <Footer />
             </section>
+            <Footer />
         </BrowserRouter>
     );
 }

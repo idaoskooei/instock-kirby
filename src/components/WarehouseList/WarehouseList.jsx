@@ -51,7 +51,7 @@ const WarehouseList = ({ warehouses, setWarehouses }) => {
                     </h4>
                 </div>
                 <div className="warehouse__tablet-heading-right">
-                    <h4 className="warehouse__tablet-heading">
+                    <h4 className="warehouse__tablet-heading  warehouse__tablet-heading--contact">
                         CONTACT NAME
                         <img src={sort} className="icon" />
                     </h4>
@@ -62,6 +62,7 @@ const WarehouseList = ({ warehouses, setWarehouses }) => {
                 </div>
                 <h4 className="warehouse__tablet-heading-actions">ACTIONS</h4>
             </div>
+            <ul className="warehouse__all">
             {warehouses.map((warehouse) => (
                 <li className="warehouse__wrapper" key={warehouse.id}>
                     <div className="warehouse__row--infos">
@@ -107,7 +108,7 @@ const WarehouseList = ({ warehouses, setWarehouses }) => {
                                     {warehouse.contact_name}
                                 </p>
                             </div>
-                            <div className="warehouse__column">
+                            <div className="warehouse__column warehouse__column--contact">
                                 <h4 className="warehouse__heading">
                                     CONTACT INFORMATION
                                 </h4>
@@ -136,7 +137,9 @@ const WarehouseList = ({ warehouses, setWarehouses }) => {
                         />
                     </div>
                 </li>
+               
             ))}
+             </ul>
              {selectedWarehouse && (
                 <DeleteWarehouseModal
                     id={selectedWarehouse.id}

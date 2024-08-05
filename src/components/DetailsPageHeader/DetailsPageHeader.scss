@@ -5,8 +5,9 @@
     background-color: $white;
     display: flex;
     justify-content: space-between;
-    padding: $headingPadding $paddingMobile;
+    padding: $headingPadding $paddingMobile $paddingMobile*1.5 $paddingMobile;
     border-bottom: $divider;
+    border-radius: $border-radious $border-radious 0 0;
 
     @include tablet {
         padding-left: $paddingTablet;
@@ -18,7 +19,8 @@
     }
 
     &__back-btn {
-        margin-right: 0.25rem;
+        // margin-right: 0.25rem;
+        background-color:transparent;
     }
 
     &__edit-wrapper--none {

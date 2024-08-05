@@ -91,7 +91,8 @@
         border-color: $cloud;
         padding: 6px 16px;
         font-size: 14px;
-
+        position: relative;
+        
         @include tablet {
             height: $tablet-form-height;
         }
@@ -140,45 +141,39 @@
         }
     }
 
-    &__buttons-container {
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-        background-color: $grey;
-        padding: $paddingMobile;
-
-        @include tablet {
-            padding: $paddingTablet;
-            justify-content: flex-end;
-        }
-    }
-
-    &__button {
-        flex: 1;
-        border-radius: $button-radius;
-        padding: 0.25rem;
-        border: $divider;
-        font-weight: bold;
-
-        @include tablet {
-            flex: none;
-            padding: 0.5rem $button-LR-padding;
-        }
-
-        &--cancel {
-            background-color: $white;
-            margin-right: $paddingMobile;
-            &:hover {
-                border: 1px solid $indigo;
-                color: $indigo;
+    &__button {   
+        &--all {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 2rem 1rem;
+            gap: 1rem;
+            @include tablet {
+                flex-direction: row;
+                justify-content: flex-end;
+            }
+            @include desktop {
+                flex-direction: row;
+                justify-content: flex-end;
             }
         }
-
-        &--add {
-            background-color: $indigo;
-            color: $white;
+        &--cancel {
+            color: $slate;
+            background-color: $white;
+            border: 1px solid $cloud;
             &:hover {
-                background-color: $graphite;
+            border: 1px solid $indigo;
+            color: $indigo;
+            }
+        }
+        &--add {
+            color: $white;
+            background-color: $indigo;
+            border: 1px solid $indigo;
+            &:hover {
+            background-color: $graphite;
+            border: 1px solid $graphite;
             }
         }
     }
