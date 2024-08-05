@@ -56,7 +56,7 @@ const EditWarehouseForm = ({ warehouse, setWarehouse }) => {
     return (
         <form className="section" onSubmit={handleAddWarehouse}>
             <div className="header-container">
-                <NavLink className="link" to={`/`}>
+                <NavLink className="link" to={`/warehouses/${id}`}>
                     <div className="title-container">
                         <img
                             className="title-container__arrow"

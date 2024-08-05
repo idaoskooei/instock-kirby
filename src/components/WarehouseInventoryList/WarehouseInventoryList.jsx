@@ -6,6 +6,7 @@ import iconChevron from "../../assets/Icons/chevron_right-24px.svg";
 import sort from "../../assets/Icons/sort-24px.svg";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import DeleteInventory from "../../components/DeleteInventory/DeleteInventory";
 
 const URL = import.meta.env.VITE_APP_BASE_URL;
 
@@ -13,6 +14,23 @@ const WarehouseInventoryList = ({ warehouseId }) => {
     const [inventoryItems, setInventoryItems] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedInventory, setSelectedInventory] = useState(null);
+
+    const openDeleteModal = (item) => {
+        setSelectedInventory(item);
+        setIsModalOpen(true);
+    };
+
+    const closeDeleteModal = () => {
+        setIsModalOpen(false);
+        setSelectedInventory(null);
+    };
+
+    const handleFilterDelete = (id) => {
+        setInventoryItems(inventoryItems.filter((item) => item.id !== id));
+    };
 
     useEffect(() => {
         const fetchInventory = async () => {
@@ -98,8 +116,16 @@ const WarehouseInventoryList = ({ warehouseId }) => {
                         <div className="inventory__column--right">
                             <div className="inventory__column">
                                 <h4 className="inventory__heading">STATUS</h4>
-                                <p className={`p2 ${item.quantity === 0 ? 'tag__global tag__out-of-stock' : 'tag__global tag__in-stock'}`}>
-                                    {item.quantity === 0 ? 'OUT OF STOCK' : 'IN STOCK'}
+                                <p
+                                    className={`p2 ${
+                                        item.quantity === 0
+                                            ? "tag__global tag__out-of-stock"
+                                            : "tag__global tag__in-stock"
+                                    }`}
+                                >
+                                    {item.quantity === 0
+                                        ? "OUT OF STOCK"
+                                        : "IN STOCK"}
                                 </p>
                             </div>
                             <div className="inventory__column">
@@ -112,13 +138,27 @@ const WarehouseInventoryList = ({ warehouseId }) => {
                     </div>
 
                     <div className="inventory__row--icons">
-                        <img className="icon" src={iconDelete} alt="Delete" />
+                        <img
+                            className="icon"
+                            src={iconDelete}
+                            alt="Delete"
+                            onClick={() => openDeleteModal(item)}
+                        />
                         <Link to={`/inventory/${item.id}/edit`}>
                             <img className="icon" src={iconEdit} alt="Edit" />
                         </Link>
                     </div>
                 </li>
             ))}
+            {selectedInventory && (
+                <DeleteInventory
+                    isOpen={isModalOpen}
+                    closeModal={closeDeleteModal}
+                    selectedInventory={selectedInventory}
+                    setSelectedInventory={setSelectedInventory}
+                    setInventoryToDisplay={handleFilterDelete}
+                />
+            )}
         </>
     );
 };

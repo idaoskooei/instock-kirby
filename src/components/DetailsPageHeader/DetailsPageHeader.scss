@@ -7,7 +7,7 @@
     justify-content: space-between;
 
     align-items: center;
-    padding: $headingPadding $paddingMobile $paddingMobile*1.5 $paddingMobile;
+    padding: $headingPadding $paddingMobile $paddingMobile * 1.5 $paddingMobile;
     border-bottom: $divider;
     border-radius: $border-radious $border-radious 0 0;
 
@@ -23,11 +23,12 @@
     &__back-btn {
         display: flex;
         justify-content: center;
-        align-items:flex-start;
+        align-items: flex-start;
         margin: 0;
-        padding: 0 .25rem 0 0;
-        background-color:transparent;
-        &>img {
+        padding: 0 0.25rem 0 0;
+        background-color: transparent;
+        cursor: pointer;
+        & > img {
             height: 36px;
             width: 24px;
             @include tablet {
@@ -35,7 +36,6 @@
                 width: 24px;
             }
         }
-        
     }
 
     &__edit-wrapper--none {
@@ -55,13 +55,12 @@
         &:hover {
             background-color: $graphite;
         }
-        &>img {
+        & > img {
             width: 20px;
         }
         @include tablet {
             padding: 0 12px;
         }
-
     }
 
     &__edit-btn-word {
