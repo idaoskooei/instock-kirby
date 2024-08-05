@@ -24,7 +24,6 @@ const DeleteInventory = ({
             await axios.delete(`${URL}/api/inventories/${selectedInventory.id}`);
             console.log(selectedInventory.id)
             alert("Inventory item deleted successfully!");
-            navigate(-1);
         } catch (error) {
             console.error('Error deleting inventory item:', error);
             alert("Failed to delete inventory item, try again.");
@@ -34,7 +33,6 @@ const DeleteInventory = ({
 
     const handleCancel = () => {
         closeModal(false);
-        navigate(-1);
     };
 
 
@@ -61,14 +59,14 @@ const DeleteInventory = ({
       </div>
       <div className="delete-inventory__cancel-delete">
         <div
-          className="delete-inventory__button delete-inventory__button--cancel"
+          className="delete-inventory__button delete-inventory__button--cancel button"
           onClick={closeModal}
           onBlur={closeModal}
         >
           Cancel
         </div>
         <div
-          className="delete-inventory__button delete-inventory__button--delete"
+          className="delete-inventory__button delete-inventory__button--delete button"
           onClick={handleDelete}
           onBlur={closeModal}
         >

@@ -98,7 +98,9 @@ const WarehouseInventoryList = ({ warehouseId }) => {
                         <div className="inventory__column--right">
                             <div className="inventory__column">
                                 <h4 className="inventory__heading">STATUS</h4>
-                                <p className="inventory__text">{item.status}</p>
+                                <p className={`p2 ${item.quantity === 0 ? 'tag__global tag__out-of-stock' : 'tag__global tag__in-stock'}`}>
+                                    {item.quantity === 0 ? 'OUT OF STOCK' : 'IN STOCK'}
+                                </p>
                             </div>
                             <div className="inventory__column">
                                 <h4 className="inventory__heading">QUANTITY</h4>

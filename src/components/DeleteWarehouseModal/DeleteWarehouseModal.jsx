@@ -53,14 +53,14 @@ const DeleteWarehouseModal = ({
       </div>
       <div className="delete-warehouse__cancel-delete">
         <div
-          className="delete-warehouse__button delete-warehouse__button--cancel"
+          className="delete-warehouse__button delete-warehouse__button--cancel button"
           onClick={closeModal}
           onBlur={closeModal}
         >
           Cancel
         </div>
         <div
-          className="delete-warehouse__button delete-warehouse__button--delete"
+          className="delete-warehouse__button delete-warehouse__button--delete button"
           onClick={deleteWarehouse}
           onBlur={closeModal}
         >

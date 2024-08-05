@@ -1,6 +1,7 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/breakpoints" as *;
 .details {
+    border-radius: 0 0 $border-radious $border-radious;
     padding: $paddingMobile;
         @include tablet {
             padding: $paddingTablet;

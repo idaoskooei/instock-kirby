@@ -4,7 +4,8 @@
 .section {
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid vars.$cloud;
+    // border-bottom: 0px solid vars.$cloud;
+    border-radius: 0 0 vars.$border-radious vars.$border-radious;
 }
 
 .header-container {
@@ -31,7 +32,7 @@
         color: vars.$black;
         text-decoration: none;
         font-size: 1.75rem;
-        margin: 1rem 0 1rem 1rem;
+        margin: 1rem 0 1rem .5rem;
     }
 }
 
@@ -115,37 +116,64 @@
 }
 
 .buttons-container {
+    border-bottom: 0;
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
     background-color: vars.$grey;
-    padding: 2rem 0;
+    padding: 2rem 1rem;
     gap: 1rem;
-
+    border-radius: 0 0 vars.$border-radious vars.$border-radious;
+    &__row {
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        width: 100%;
+        gap: 1rem;
+        @include tablet {
+            flex-direction: row;
+            justify-content: flex-end;
+        }
+        @include desktop {
+            flex-direction: row;
+            justify-content: flex-end;
+        }
+    }
     &__cancel {
-        cursor: pointer;
-        font-family: "Titillium Web", sans-serif;
-        font-weight: 600;
-        height: 2.5rem;
-        width: 10rem;
-        color: vars.$black;
+        color: vars.$slate;
         background-color: vars.$white;
         border: 1px solid vars.$cloud;
-        border-radius: 1.5rem;
-    }
-
-    &__add {
-        cursor: pointer;
-        font-family: "Titillium Web", sans-serif;
-        font-weight: 600;
-        height: 2.5rem;
-        width: 10rem;
+        &:hover {
+          border: 1px solid vars.$indigo;
+          color: vars.$indigo;
+        }
+      }
+      &__add {
         color: vars.$white;
         background-color: vars.$indigo;
-        border: 1px solid vars.$cloud;
-        border-radius: 1.5rem;
-    }
+        border: 1px solid vars.$indigo;
+        &:hover {
+          background-color: vars.$graphite;
+          border: 1px solid vars.$graphite;
+        }
+      }
 }
 
 a {
     text-decoration: none;
 }
+
+.inventory-edit-form__message {
+    color: vars.$red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: bottom;
+    @include tablet {
+        justify-content: flex-start;
+    }
+    @include desktop {
+        justify-content: flex-start;
+    }
+}
+
