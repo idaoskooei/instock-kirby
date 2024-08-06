@@ -4,7 +4,7 @@ import errorIcon from "../../assets/Icons/error-24px.svg";
 const ErrorMessage = () => {
     return (
         <div className="errmsg">
-            <img className="errmsg__icon" src={errorIcon} alt={"erricon"} />
+            <img className="errmsg__icon" src={errorIcon} alt={"error icon"} />
             <div className="errormsg__text"> This field is required</div>
         </div>
     );

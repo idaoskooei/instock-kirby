@@ -23,7 +23,7 @@ const DeleteInventory = ({
         try {
             await axios.delete(`${URL}/api/inventories/${selectedInventory.id}`);
             console.log(selectedInventory.id)
-            alert("Inventory item deleted successfully!");
+            window.location.reload()
         } catch (error) {
             console.error('Error deleting inventory item:', error);
             alert("Failed to delete inventory item, try again.");

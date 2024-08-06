@@ -117,4 +117,10 @@ input {
         border-color: $indigo !important;
         outline: none;
     }
+    &:invalid { 
+        border-color: $red !important;
+        outline: none;
+    }
 }
+
+

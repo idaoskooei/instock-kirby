@@ -5,9 +5,12 @@
 .errmsg {
     display: flex;
     color: $red;
-    padding: $paddingInComponents 0 $paddingMobile;
+    padding: $paddingInComponents $paddingMobile $paddingMobile;
     font-weight: 400;
     font-size: 12px;
+    @include tablet {
+        padding: $paddingInComponents $paddingTablet $paddingMobile;
+    }
 
     &__icon {
         width: 13.33px;
@@ -15,3 +18,5 @@
         margin: $paddingInComponents;
     }
 }
+
+
