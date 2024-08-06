@@ -4,7 +4,7 @@ import DetailsPageHeader from "../../components/DetailsPageHeader/DetailsPageHea
 const InventoryFormPage = () => {
     return (
         <>
-            <DetailsPageHeader name="Add New Inventory Item" />
+            <DetailsPageHeader name="Edit Inventory Item" />
             <InventoryForm />
         </>
     );

@@ -1,5 +1,6 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/global" as *;
 
 .details {
     background-color: $white;
@@ -23,6 +24,9 @@
 
     &__address-wrapper {
         margin-bottom: $headingPadding;
+        @include tablet {
+            margin-bottom: 0;
+        }
     }
 
     &__address {

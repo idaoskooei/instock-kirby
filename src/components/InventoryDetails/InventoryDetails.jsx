@@ -1,5 +1,4 @@
 import "./InventoryDetails.scss";
-import DetailsPageHeader from "../DetailsPageHeader/DetailsPageHeader";
 
 const InventoryDetails = ({ inventory }) => {
     const {

@@ -1,19 +1,24 @@
 @use "../../styles/partials/breakpoints" as *;
-@use "../../styles/partials/variables" as vars;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/font" as *;
+@use "../../styles/partials/global" as *;
 
 .section {
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid vars.$cloud;
 }
 
 .header-container {
+    height: 6.0625rem;
     display: flex;
-    justify-content: space-between;
+    justify-content:flex-start;
     width: 100%;
     border-bottom: 1px solid #BDC5D5;
-    padding: 1rem 2rem;
+    padding: 2rem 1rem 1.5rem;
     align-items: center;
+    @include tablet {
+        padding: 1rem 2rem;
+    }
 }
 
 .link {
@@ -26,12 +31,8 @@
     align-items: center;
 
     &__title {
-        font-family: "Titillium Web", sans-serif;
-        font-weight: 600;
-        color: vars.$black;
-        text-decoration: none;
-        font-size: 1.75rem;
-        margin: 1rem 0 1rem 1rem;
+        font-size: 1.5625rem;
+        margin: 0;
     }
 }
 
@@ -45,20 +46,21 @@
 }
 
 .edit-details-container {
-    padding: 2rem 0;
+    padding: 2rem 1rem;
     border-bottom: 1px solid #BDC5D5;
 
     @include tablet {
         width: 50%;
+        padding: 2rem 2rem;
         border-bottom: 0px;
     }
 
     &--borderless {
-        padding: 2rem 0;
+        padding: 2rem 1rem;
         border-bottom: 0px;
 
         @include tablet {
-            padding: 0;
+            padding: 0 2rem;
             margin: 2rem 0;
             border-left: 1px solid #BDC5D5;
             width: 50%;
@@ -70,93 +72,91 @@
     }
 
     &__header {
-        font-family: "Titillium Web", sans-serif;
-        font-weight: 600;
-        color: vars.$black;
-        text-decoration: none;
+        
         font-size: 1.25rem;
-        margin: 0 0 1.5rem 2rem;
+        margin: 0 0 1.5rem 0;
     }
 
     &__subheader {
-        font-family: "Titillium Web", sans-serif;
-        font-weight: 600;
-        color: vars.$black;
+        
         text-decoration: none;
         font-size: 0.8125rem;
-        margin: 1rem 0 0.25rem 2rem;
+        margin: 1rem 0 0.25rem 0;
     }
 
     &__input {
-        font-family: "Titillium Web", sans-serif;
+        
         font-weight: 400;
         height: 2.5rem;
-        width: 85%;
+        width: 100%;
         background-position: right;
-        border: 1px solid vars.$cloud;
+        border: 1px solid $cloud;
         border-radius: 1.5rem;
-        margin: 0 2rem;
         padding: 1rem;
     }
 }
 
-.edit-buttons-container {
-    display: flex;
-    flex-direction: row;
-    background-color: vars.$grey;
-    padding: 2rem 0;
-    margin-left: auto;
-    margin-right: 0;
-    width: 100%;
-    gap: 1rem;
-
-    &__cancel {
-        font-family: "Titillium Web", sans-serif;
-        font-weight: 600;
-        height: 2.5rem;
-        width: 50%;
-        color: vars.$black;
-        background-color: vars.$white;
-        border: 1px solid vars.$cloud;
-        border-radius: 1.5rem;
-        margin-left: 2rem;
-        &:hover {
-            border: 1px solid vars.$indigo;
-            color: vars.$indigo;
-        }
-
+.edit-buttons{
+    &__wrapper {
+        padding: .875rem 1rem;
+        background-color: $grey;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
         @include tablet {
-            width: 4.5rem;
-            margin-left: auto;
+            align-items: end;
         }
     }
-
-    &__save {
-        font-family: "Titillium Web", sans-serif;
-        font-weight: 600;
-        height: 2.5rem;
-        width: 50%;
-        color: vars.$white;
-        background-color: vars.$indigo;
-        border: 1px solid vars.$cloud;
-        border-radius: 1.5rem;
-        margin-right: 2rem;
-        &:hover {
-            background-color: vars.$graphite;
-            border: 1px solid vars.$graphite;
-        }
-
+    
+    &__container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        gap: 1rem;
         @include tablet {
-            width: 3.9rem;
-        }
-    }
-}
+            width:fit-content;
 
-a {
-    text-decoration: none;
-}
+        }
+
+        &--cancel {
+            width: 100%;
+            flex: .5;
+            background-color: $white;
+            border: 1px solid $cloud;
+            border-radius: 1.5rem;
+            &:hover {
+                border: 1px solid $indigo;
+                color: $indigo;
+            }
+
+            @include tablet {
+                width: auto;
+            }
+        }
+
+        &--save {
+            
+            flex: .5;
+            color: $white;
+            background-color: $indigo;
+            border: 1px solid $indigo;
+            border-radius: 1.5rem;
+
+            &:hover {
+                background-color: $graphite;
+                border: 1px solid $graphite;
+            }
+
+            @include tablet {
+                width: auto;
+            }
+    }
+}}
+
 
 .edit-details-edit-form__message {
-    color: vars.$green;
+    color: $green;
     margin: .7rem 1rem 0rem 0rem;
 }

@@ -157,19 +157,21 @@ const EditWarehouseForm = ({ warehouse, setWarehouse }) => {
                     ></input>
                 </div>
             </div>
-            <div className="edit-buttons-container">
-                <button
-                    onClick={handleCancelClick}
-                    className="edit-buttons-container__cancel"
-                >
-                    Cancel
-                </button>
-                <button type="submit" className="edit-buttons-container__save">
-                    Save
-                </button>
+            <div className="edit-buttons__wrapper">
                 <p className="edit-details-edit-form__message">
                     {updatedMessage}
                 </p>
+                <div className="edit-buttons__container">
+                    <button
+                        onClick={handleCancelClick}
+                        className="edit-buttons__container--cancel button"
+                    >
+                        Cancel
+                    </button>
+                    <button type="submit" className="edit-buttons__container--save button">
+                        Save
+                    </button>
+                </div>
             </div>
         </form>
     );

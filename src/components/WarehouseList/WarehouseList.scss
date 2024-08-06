@@ -11,7 +11,7 @@
     flex-direction: column;
     justify-content:center;
     align-items: center;
-    padding: $paddingMobile * 0.5 $paddingMobile;
+    padding:  $paddingMobile;
     &:hover {
       background-color: rgba($indigo, 0.07);
     }
@@ -154,7 +154,7 @@
     color: $indigo;
 
     &:hover {
-      transform: scale(1.05);
+      text-decoration: underline;
     }
   }
 
