@@ -4,8 +4,7 @@ import axios from "axios";
 import InventoryDetails from "../../components/InventoryDetails/InventoryDetails";
 import DetailsPageHeader from "../../components/DetailsPageHeader/DetailsPageHeader";
 
-// const URL = import.meta.env.VITE_APP_BASE_URL;
-const URL = 'http://localhost:8080';
+const URL = import.meta.env.VITE_APP_BASE_URL;
 
 const InventoryDetailsPage = () => {
     const [inventory, setInventory] = useState(null);
@@ -25,20 +24,16 @@ const InventoryDetailsPage = () => {
         fetchInventory();
     }, [id]);
 
-    // const handleEdit = () => {
-        // navigate(`/inventory/${id}/edit`);
-    // };
-
     if (!inventory) {
         return <p>Loading...</p>;
     }
 
     return (
         <div>
+            
             <DetailsPageHeader
                 name={inventory.item_name} 
                 navLink={`/inventory/${id}/edit`}
-                // handleEdit={handleEdit}
             />
             <InventoryDetails inventory={inventory} />
         </div>

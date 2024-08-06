@@ -1,4 +1,4 @@
-import "./WarehouseInventoryList.scss";
+// import "./WarehouseInventoryList.scss";
 import { Link } from "react-router-dom";
 import iconDelete from "../../assets/Icons/delete_outline-24px.svg";
 import iconEdit from "../../assets/Icons/edit-24px.svg";
