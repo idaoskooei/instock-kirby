@@ -1,12 +1,13 @@
 @use "../../styles/partials/breakpoints" as *;
-@use "../../styles/partials/variables" as vars;
+@use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography";
+@use "../../styles/partials/global" as *;
 
 .header {
     width: 100%;
     display: flex;
     flex-direction: column;
-    background-color: vars.$graphite;
+    background-color: $graphite;
     padding: 0 clamp(1rem, 0.284rem + 3.579vw, 2rem);
     gap: 1.5rem;
     height: clamp(10.938rem, 9.821rem + 5.58vw, 12.5rem);
@@ -84,14 +85,14 @@
         font-size: 0.875rem;
         text-decoration: none;
 
-        background-color: vars.$graphite;
-        border: 1px solid vars.$graphite;
-        color: vars.$cloud;
+        background-color: $graphite;
+        border: 1px solid $graphite;
+        color: $cloud;
         border-radius: 5rem;
 
         &:hover {
             text-decoration: underline;
-            color: vars.$white;
+            color: $white;
         }
 
         @include tablet {
@@ -101,8 +102,8 @@
 }
 
 .active {
-    background-color: vars.$black;
-    border: 1px solid vars.$black;
-    color: vars.$white;
+    background-color: $black;
+    border: 1px solid $black;
+    color: $white;
     height: 2rem;
 }

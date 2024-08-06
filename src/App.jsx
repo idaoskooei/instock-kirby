@@ -24,7 +24,10 @@ function App() {
                                 path="/"
                                 element={<Navigate to="/warehouses" />}
                             />
-                            <Route path="/warehouses" element={<WarehousePage />} />
+                            <Route
+                                path="/warehouses"
+                                element={<WarehousePage />}
+                            />
                             <Route
                                 path="/warehouses/:id"
                                 element={<WarehouseDetailsPage />}
@@ -33,18 +36,21 @@ function App() {
                                 path="/warehouses/edit/:id"
                                 element={<EditWarehousePage />}
                             />
-                            <Route path="/inventory" element={<InventoryPage />} />
+                            <Route
+                                path="/inventory"
+                                element={<InventoryPage />}
+                            />
                             <Route
                                 path="/inventory/:id"
                                 element={<InventoryDetailsPage />}
                             />
                             <Route
                                 path="/inventory/:id/edit"
-                                element={<InventoryFormPage />}
+                                element={<InventoryFormPage mode="Edit" />}
                             />
                             <Route
                                 path="/add-inventory"
-                                element={<InventoryFormPage />}
+                                element={<InventoryFormPage mode="Add New" />}
                             />
                             <Route
                                 path="/add-warehouse"
