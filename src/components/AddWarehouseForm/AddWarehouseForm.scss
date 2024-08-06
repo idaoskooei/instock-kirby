@@ -42,12 +42,10 @@
 
     @include tablet {
         flex-direction: row;
-        gap: 2rem;
     }
 
     @include desktop {
         flex-direction: row;
-        gap: 2rem;
     }
 }
 
